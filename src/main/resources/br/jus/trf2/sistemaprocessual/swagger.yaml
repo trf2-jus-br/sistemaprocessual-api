@@ -459,6 +459,51 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
+  /usuario-web/{username}/processo/{numero}:
+    get:
+      description: Validar o número do processo
+      tags: [processo]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/numero"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: "#/definitions/Processo"
+            type: object
+            properties:
+              numero:
+                $ref: "#/definitions/Numero"
+              orgao:
+                $ref: "#/definitions/Orgao"
+              unidade:
+                $ref: "#/definitions/Unidade"
+              localNaUnidade:
+                $ref: "#/definitions/LocalNaUnidade"
+              usuarioautorizado:
+                $ref: "#/definitions/UsuarioAutorizado"
+              segredodejustica:
+                $ref: "#/definitions/SegredoDeJustica"
+              segredodejusticadesistema:
+                $ref: "#/definitions/SegredoDeJusticaDeSistema"
+              segredodejusticaabsoluto:
+                $ref: "#/definitions/SegredoDeJusticaAbsoluto"
+              eletronico:
+                $ref: "#/definitions/Eletronico"
+              sentenciado:
+                $ref: "#/definitions/Sentenciado"
+              baixado:
+                $ref: "#/definitions/Baixado"
+              cdas:
+                $ref: "#/definitions/CDAs"
+              dataultimomovimento:
+                $ref: "#/definitions/DataUltimoMovimento"
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
   /usuario/{username}/mesas:
     get:
       description: Obter mesas virtuais
@@ -974,7 +1019,38 @@ definitions:
         type: string
       usuarioConfirmacao:
         type: string
-    
+  
+  Processo:
+    description: Processo
+    type: object
+    properties:
+      numero:
+        $ref: "#/definitions/Numero"
+      orgao:
+        $ref: "#/definitions/Orgao"
+      unidade:
+        $ref: "#/definitions/Unidade"
+      localNaUnidade:
+        $ref: "#/definitions/LocalNaUnidade"
+      usuarioautorizado:
+        $ref: "#/definitions/UsuarioAutorizado"
+      segredodejustica:
+        $ref: "#/definitions/SegredoDeJustica"
+      segredodejusticadesistema:
+        $ref: "#/definitions/SegredoDeJusticaDeSistema"
+      segredodejusticaabsoluto:
+        $ref: "#/definitions/SegredoDeJusticaAbsoluto"
+      eletronico:
+        $ref: "#/definitions/Eletronico"
+      sentenciado:
+        $ref: "#/definitions/Sentenciado"
+      baixado:
+        $ref: "#/definitions/Baixado"
+      cdas:
+        $ref: "#/definitions/CDAs"
+      dataultimomovimento:
+        $ref: "#/definitions/DataUltimoMovimento"
+  
   Error:
     type: object
     properties:

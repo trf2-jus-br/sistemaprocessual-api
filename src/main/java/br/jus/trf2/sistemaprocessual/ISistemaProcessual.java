@@ -349,7 +349,7 @@ public interface ISistemaProcessual {
 
 		public Long contentlength;
 		public InputStream inputstream;
-		public Map<String, List<String>>  headerFields;
+		public Map<String, List<String>> headerFields;
 
 		public String getContenttype() {
 			return contenttype;
@@ -382,7 +382,7 @@ public interface ISistemaProcessual {
 		public void setInputstream(InputStream inputstream) {
 			this.inputstream = inputstream;
 		}
-		
+
 		public Map<String, List<String>> getHeaderFields() {
 			return headerFields;
 		}
@@ -395,6 +395,32 @@ public interface ISistemaProcessual {
 
 	public interface IProcessoNumeroPdfGet extends ISwaggerMethod {
 		public void run(ProcessoNumeroPdfGetRequest req, ProcessoNumeroPdfGetResponse resp) throws Exception;
+	}
+
+	public class UsuarioWebUsernameProcessoNumeroGetRequest implements ISwaggerRequest {
+		public String username;
+		public String numero;
+	}
+
+	public class UsuarioWebUsernameProcessoNumeroGetResponse implements ISwaggerResponse {
+		public String numero;
+		public String orgao;
+		public String unidade;
+		public String localNaUnidade;
+		public Boolean usuarioautorizado;
+		public Boolean segredodejustica;
+		public Boolean segredodejusticadesistema;
+		public Boolean segredodejusticaabsoluto;
+		public Boolean eletronico;
+		public Boolean sentenciado;
+		public Boolean baixado;
+		public String cdas;
+		public String dataultimomovimento;
+	}
+
+	public interface IUsuarioWebUsernameProcessoNumeroGet extends ISwaggerMethod {
+		public void run(UsuarioWebUsernameProcessoNumeroGetRequest req,
+				UsuarioWebUsernameProcessoNumeroGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioWebUsernameGetRequest implements ISwaggerRequest {
@@ -482,7 +508,7 @@ public interface ISistemaProcessual {
 
 		public Long contentlength;
 		public InputStream inputstream;
-		public Map<String, List<String>>  headerFields;
+		public Map<String, List<String>> headerFields;
 
 		public String getContenttype() {
 			return contenttype;
@@ -515,7 +541,7 @@ public interface ISistemaProcessual {
 		public void setInputstream(InputStream inputstream) {
 			this.inputstream = inputstream;
 		}
-		
+
 		public Map<String, List<String>> getHeaderFields() {
 			return headerFields;
 		}
