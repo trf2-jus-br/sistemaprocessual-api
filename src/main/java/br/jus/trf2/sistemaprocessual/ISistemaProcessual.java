@@ -20,21 +20,10 @@ public interface ISistemaProcessual {
 	public class Email implements ISwaggerModel {
 	}
 
-	public class Usuario implements ISwaggerModel {
-		public String orgao;
-		public String codusu;
-		public String codusuweb;
-		public String codunidade;
-		public String nome;
-		public String cpf;
-		public String email;
-		public String perfil;
-	}
-
 	public class TipoPeticaoIntercorrente implements ISwaggerModel {
 		public String id;
 		public String descricao;
-		public String orgao;
+		public String sistema;
 	}
 
 	public class IdNome implements ISwaggerModel {
@@ -74,11 +63,11 @@ public interface ISistemaProcessual {
 		public String dataprotocolo;
 		public String classe;
 		public String unidade;
-		public String orgao;
+		public String sistema;
 	}
 
 	public class Mesa implements ISwaggerModel {
-		public String orgao;
+		public String sistema;
 		public String idlocal;
 		public String idmesa;
 		public String nome;
@@ -115,7 +104,7 @@ public interface ISistemaProcessual {
 	public class Numero implements ISwaggerModel {
 	}
 
-	public class Orgao implements ISwaggerModel {
+	public class Sistema implements ISwaggerModel {
 	}
 
 	public class Unidade implements ISwaggerModel {
@@ -161,7 +150,7 @@ public interface ISistemaProcessual {
 	}
 
 	public class Pessoa implements ISwaggerModel {
-		public String orgao;
+		public String sistema;
 		public String id;
 		public String nome;
 		public String documento;
@@ -176,7 +165,7 @@ public interface ISistemaProcessual {
 		public String unidade;
 		public String unidadeNome;
 		public String unidadeTipo;
-		public String orgao;
+		public String sistema;
 		public String localidade;
 		public String teor;
 		public String eventoIntimacao;
@@ -190,129 +179,42 @@ public interface ISistemaProcessual {
 		public String usuarioConfirmacao;
 	}
 
+	public class Processo implements ISwaggerModel {
+		public String numero;
+		public String sistema;
+		public String unidade;
+		public String localNaUnidade;
+		public Boolean usuarioautorizado;
+		public Boolean segredodejustica;
+		public Boolean segredodejusticadesistema;
+		public Boolean segredodejusticaabsoluto;
+		public Boolean eletronico;
+		public Boolean sentenciado;
+		public Boolean baixado;
+		public String cdas;
+		public String dataultimomovimento;
+	}
+
 	public class Error implements ISwaggerModel {
 		public String error;
 	}
 
-	public class LocalidadeGetRequest implements ISwaggerRequest {
-		public String orgao;
+	public class UsuarioWebUsernameGetRequest implements ISwaggerRequest {
+		public String username;
 	}
 
-	public class LocalidadeGetResponse implements ISwaggerResponse {
-		public List<IdNome> list;
-	}
-
-	public interface ILocalidadeGet extends ISwaggerMethod {
-		public void run(LocalidadeGetRequest req, LocalidadeGetResponse resp) throws Exception;
-	}
-
-	public class LocalidadeIdEspecialidadeGetRequest implements ISwaggerRequest {
-		public String id;
-		public String orgao;
-	}
-
-	public class LocalidadeIdEspecialidadeGetResponse implements ISwaggerResponse {
-		public List<IdNome> list;
-	}
-
-	public interface ILocalidadeIdEspecialidadeGet extends ISwaggerMethod {
-		public void run(LocalidadeIdEspecialidadeGetRequest req, LocalidadeIdEspecialidadeGetResponse resp)
-				throws Exception;
-	}
-
-	public class LocalidadeIdEspecialidadeId2ClasseGetRequest implements ISwaggerRequest {
-		public String id;
-		public String id2;
-		public String orgao;
-	}
-
-	public class LocalidadeIdEspecialidadeId2ClasseGetResponse implements ISwaggerResponse {
-		public List<IdNomeClasseCNJ> list;
-	}
-
-	public interface ILocalidadeIdEspecialidadeId2ClasseGet extends ISwaggerMethod {
-		public void run(LocalidadeIdEspecialidadeId2ClasseGetRequest req,
-				LocalidadeIdEspecialidadeId2ClasseGetResponse resp) throws Exception;
-	}
-
-	public class PessoaFisicaDocumentoGetRequest implements ISwaggerRequest {
-		public String documento;
-		public String orgao;
-	}
-
-	public class PessoaFisicaDocumentoGetResponse implements ISwaggerResponse {
-		public List<Pessoa> list;
-	}
-
-	public interface IPessoaFisicaDocumentoGet extends ISwaggerMethod {
-		public void run(PessoaFisicaDocumentoGetRequest req, PessoaFisicaDocumentoGetResponse resp) throws Exception;
-	}
-
-	public class PessoaJuridicaDocumentoGetRequest implements ISwaggerRequest {
-		public String documento;
-		public String orgao;
-	}
-
-	public class PessoaJuridicaDocumentoGetResponse implements ISwaggerResponse {
-		public List<Pessoa> list;
-	}
-
-	public interface IPessoaJuridicaDocumentoGet extends ISwaggerMethod {
-		public void run(PessoaJuridicaDocumentoGetRequest req, PessoaJuridicaDocumentoGetResponse resp)
-				throws Exception;
-	}
-
-	public class AdvogadoDocumentoGetRequest implements ISwaggerRequest {
-		public String documento;
-		public String orgao;
-	}
-
-	public class AdvogadoDocumentoGetResponse implements ISwaggerResponse {
-		public List<Pessoa> list;
-	}
-
-	public interface IAdvogadoDocumentoGet extends ISwaggerMethod {
-		public void run(AdvogadoDocumentoGetRequest req, AdvogadoDocumentoGetResponse resp) throws Exception;
-	}
-
-	public class OrgaoPublicoListarGetRequest implements ISwaggerRequest {
-		public String orgao;
-		public String tipodedocumento;
-	}
-
-	public class OrgaoPublicoListarGetResponse implements ISwaggerResponse {
-		public List<Pessoa> list;
-	}
-
-	public interface IOrgaoPublicoListarGet extends ISwaggerMethod {
-		public void run(OrgaoPublicoListarGetRequest req, OrgaoPublicoListarGetResponse resp) throws Exception;
-	}
-
-	public class AutenticarPostRequest implements ISwaggerRequest {
-		public String login;
-		public String senha;
-	}
-
-	public class AutenticarPostResponse implements ISwaggerResponse {
+	public class UsuarioWebUsernameGetResponse implements ISwaggerResponse {
 		public String nome;
 		public String cpf;
 		public String email;
+		public String codusu;
+		public String codusuweb;
+		public String codunidade;
+		public String perfil;
 	}
 
-	public interface IAutenticarPost extends ISwaggerMethod {
-		public void run(AutenticarPostRequest req, AutenticarPostResponse resp) throws Exception;
-	}
-
-	public class PeticaoIntercorrenteTiposGetRequest implements ISwaggerRequest {
-	}
-
-	public class PeticaoIntercorrenteTiposGetResponse implements ISwaggerResponse {
-		public List<TipoPeticaoIntercorrente> list;
-	}
-
-	public interface IPeticaoIntercorrenteTiposGet extends ISwaggerMethod {
-		public void run(PeticaoIntercorrenteTiposGetRequest req, PeticaoIntercorrenteTiposGetResponse resp)
-				throws Exception;
+	public interface IUsuarioWebUsernameGet extends ISwaggerMethod {
+		public void run(UsuarioWebUsernameGetRequest req, UsuarioWebUsernameGetResponse resp) throws Exception;
 	}
 
 	public class ProcessoValidarNumeroGetRequest implements ISwaggerRequest {
@@ -346,7 +248,6 @@ public interface ISistemaProcessual {
 	public class ProcessoNumeroPdfGetResponse implements ISwaggerResponse, ISwaggerResponseFile {
 		public String contenttype = "application/pdf";
 		public String contentdisposition = "attachment; filename=processo.pdf";
-
 		public Long contentlength;
 		public InputStream inputstream;
 		public Map<String, List<String>> headerFields;
@@ -390,52 +291,137 @@ public interface ISistemaProcessual {
 		public void setHeaderFields(Map<String, List<String>> headerFields) {
 			this.headerFields = headerFields;
 		}
-
 	}
 
 	public interface IProcessoNumeroPdfGet extends ISwaggerMethod {
 		public void run(ProcessoNumeroPdfGetRequest req, ProcessoNumeroPdfGetResponse resp) throws Exception;
 	}
 
-	public class UsuarioWebUsernameProcessoNumeroGetRequest implements ISwaggerRequest {
+	public class LocalidadeGetRequest implements ISwaggerRequest {
+	}
+
+	public class LocalidadeGetResponse implements ISwaggerResponse {
+		public List<IdNome> list;
+	}
+
+	public interface ILocalidadeGet extends ISwaggerMethod {
+		public void run(LocalidadeGetRequest req, LocalidadeGetResponse resp) throws Exception;
+	}
+
+	public class LocalidadeIdEspecialidadeGetRequest implements ISwaggerRequest {
+		public String id;
+	}
+
+	public class LocalidadeIdEspecialidadeGetResponse implements ISwaggerResponse {
+		public List<IdNome> list;
+	}
+
+	public interface ILocalidadeIdEspecialidadeGet extends ISwaggerMethod {
+		public void run(LocalidadeIdEspecialidadeGetRequest req, LocalidadeIdEspecialidadeGetResponse resp)
+				throws Exception;
+	}
+
+	public class LocalidadeIdEspecialidadeId2ClasseGetRequest implements ISwaggerRequest {
+		public String id;
+		public String id2;
+	}
+
+	public class LocalidadeIdEspecialidadeId2ClasseGetResponse implements ISwaggerResponse {
+		public List<IdNomeClasseCNJ> list;
+	}
+
+	public interface ILocalidadeIdEspecialidadeId2ClasseGet extends ISwaggerMethod {
+		public void run(LocalidadeIdEspecialidadeId2ClasseGetRequest req,
+				LocalidadeIdEspecialidadeId2ClasseGetResponse resp) throws Exception;
+	}
+
+	public class PessoaFisicaDocumentoGetRequest implements ISwaggerRequest {
+		public String documento;
+	}
+
+	public class PessoaFisicaDocumentoGetResponse implements ISwaggerResponse {
+		public List<Pessoa> list;
+	}
+
+	public interface IPessoaFisicaDocumentoGet extends ISwaggerMethod {
+		public void run(PessoaFisicaDocumentoGetRequest req, PessoaFisicaDocumentoGetResponse resp) throws Exception;
+	}
+
+	public class PessoaJuridicaDocumentoGetRequest implements ISwaggerRequest {
+		public String documento;
+	}
+
+	public class PessoaJuridicaDocumentoGetResponse implements ISwaggerResponse {
+		public List<Pessoa> list;
+	}
+
+	public interface IPessoaJuridicaDocumentoGet extends ISwaggerMethod {
+		public void run(PessoaJuridicaDocumentoGetRequest req, PessoaJuridicaDocumentoGetResponse resp)
+				throws Exception;
+	}
+
+	public class AdvogadoDocumentoGetRequest implements ISwaggerRequest {
+		public String documento;
+	}
+
+	public class AdvogadoDocumentoGetResponse implements ISwaggerResponse {
+		public List<Pessoa> list;
+	}
+
+	public interface IAdvogadoDocumentoGet extends ISwaggerMethod {
+		public void run(AdvogadoDocumentoGetRequest req, AdvogadoDocumentoGetResponse resp) throws Exception;
+	}
+
+	public class OrgaoPublicoListarGetRequest implements ISwaggerRequest {
+		public String tipodedocumento;
+	}
+
+	public class OrgaoPublicoListarGetResponse implements ISwaggerResponse {
+		public List<Pessoa> list;
+	}
+
+	public interface IOrgaoPublicoListarGet extends ISwaggerMethod {
+		public void run(OrgaoPublicoListarGetRequest req, OrgaoPublicoListarGetResponse resp) throws Exception;
+	}
+
+	public class PeticaoIntercorrenteTiposGetRequest implements ISwaggerRequest {
+	}
+
+	public class PeticaoIntercorrenteTiposGetResponse implements ISwaggerResponse {
+		public List<TipoPeticaoIntercorrente> list;
+	}
+
+	public interface IPeticaoIntercorrenteTiposGet extends ISwaggerMethod {
+		public void run(PeticaoIntercorrenteTiposGetRequest req, PeticaoIntercorrenteTiposGetResponse resp)
+				throws Exception;
+	}
+
+	public class UsuarioWebUsernamePeticaoIntercorrenteContarGetRequest implements ISwaggerRequest {
 		public String username;
-		public String numero;
+		public String dias;
 	}
 
-	public class UsuarioWebUsernameProcessoNumeroGetResponse implements ISwaggerResponse {
-		public String numero;
-		public String orgao;
-		public String unidade;
-		public String localNaUnidade;
-		public Boolean usuarioautorizado;
-		public Boolean segredodejustica;
-		public Boolean segredodejusticadesistema;
-		public Boolean segredodejusticaabsoluto;
-		public Boolean eletronico;
-		public Boolean sentenciado;
-		public Boolean baixado;
-		public String cdas;
-		public String dataultimomovimento;
+	public class UsuarioWebUsernamePeticaoIntercorrenteContarGetResponse implements ISwaggerResponse {
+		public List<Contagem> list;
 	}
 
-	public interface IUsuarioWebUsernameProcessoNumeroGet extends ISwaggerMethod {
-		public void run(UsuarioWebUsernameProcessoNumeroGetRequest req,
-				UsuarioWebUsernameProcessoNumeroGetResponse resp) throws Exception;
+	public interface IUsuarioWebUsernamePeticaoIntercorrenteContarGet extends ISwaggerMethod {
+		public void run(UsuarioWebUsernamePeticaoIntercorrenteContarGetRequest req,
+				UsuarioWebUsernamePeticaoIntercorrenteContarGetResponse resp) throws Exception;
 	}
 
-	public class UsuarioWebUsernameGetRequest implements ISwaggerRequest {
+	public class UsuarioWebUsernamePeticaoIntercorrenteListarGetRequest implements ISwaggerRequest {
 		public String username;
+		public String data;
 	}
 
-	public class UsuarioWebUsernameGetResponse implements ISwaggerResponse {
-		public String nome;
-		public String cpf;
-		public String email;
-		public List<Usuario> usuarios;
+	public class UsuarioWebUsernamePeticaoIntercorrenteListarGetResponse implements ISwaggerResponse {
+		public List<PeticaoIntercorrente> list;
 	}
 
-	public interface IUsuarioWebUsernameGet extends ISwaggerMethod {
-		public void run(UsuarioWebUsernameGetRequest req, UsuarioWebUsernameGetResponse resp) throws Exception;
+	public interface IUsuarioWebUsernamePeticaoIntercorrenteListarGet extends ISwaggerMethod {
+		public void run(UsuarioWebUsernamePeticaoIntercorrenteListarGetRequest req,
+				UsuarioWebUsernamePeticaoIntercorrenteListarGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioWebUsernameAvisoConfirmadoContarGetRequest implements ISwaggerRequest {
@@ -470,34 +456,6 @@ public interface ISistemaProcessual {
 				UsuarioWebUsernameAvisoConfirmadoListarGetResponse resp) throws Exception;
 	}
 
-	public class UsuarioWebUsernamePeticaoIntercorrenteContarGetRequest implements ISwaggerRequest {
-		public String username;
-		public String dias;
-	}
-
-	public class UsuarioWebUsernamePeticaoIntercorrenteContarGetResponse implements ISwaggerResponse {
-		public List<Contagem> list;
-	}
-
-	public interface IUsuarioWebUsernamePeticaoIntercorrenteContarGet extends ISwaggerMethod {
-		public void run(UsuarioWebUsernamePeticaoIntercorrenteContarGetRequest req,
-				UsuarioWebUsernamePeticaoIntercorrenteContarGetResponse resp) throws Exception;
-	}
-
-	public class UsuarioWebUsernamePeticaoIntercorrenteListarGetRequest implements ISwaggerRequest {
-		public String username;
-		public String data;
-	}
-
-	public class UsuarioWebUsernamePeticaoIntercorrenteListarGetResponse implements ISwaggerResponse {
-		public List<PeticaoIntercorrente> list;
-	}
-
-	public interface IUsuarioWebUsernamePeticaoIntercorrenteListarGet extends ISwaggerMethod {
-		public void run(UsuarioWebUsernamePeticaoIntercorrenteListarGetRequest req,
-				UsuarioWebUsernamePeticaoIntercorrenteListarGetResponse resp) throws Exception;
-	}
-
 	public class UsuarioWebUsernameAvisoPendenteExportarGetRequest implements ISwaggerRequest {
 		public String username;
 	}
@@ -505,7 +463,6 @@ public interface ISistemaProcessual {
 	public class UsuarioWebUsernameAvisoPendenteExportarGetResponse implements ISwaggerResponse, ISwaggerResponseFile {
 		public String contenttype = "application/xml";
 		public String contentdisposition = "attachment; filename=avisos.xml";
-
 		public Long contentlength;
 		public InputStream inputstream;
 		public Map<String, List<String>> headerFields;
@@ -549,7 +506,6 @@ public interface ISistemaProcessual {
 		public void setHeaderFields(Map<String, List<String>> headerFields) {
 			this.headerFields = headerFields;
 		}
-
 	}
 
 	public interface IUsuarioWebUsernameAvisoPendenteExportarGet extends ISwaggerMethod {
@@ -565,7 +521,6 @@ public interface ISistemaProcessual {
 			implements ISwaggerResponse, ISwaggerResponseFile {
 		public String contenttype = "application/xml";
 		public String contentdisposition = "attachment; filename=avisos.xml";
-
 		public Long contentlength;
 		public InputStream inputstream;
 		public Map<String, List<String>> headerFields;
@@ -616,6 +571,32 @@ public interface ISistemaProcessual {
 				UsuarioWebUsernameAvisoConfirmadoExportarGetResponse resp) throws Exception;
 	}
 
+	public class UsuarioWebUsernameProcessoNumeroGetRequest implements ISwaggerRequest {
+		public String username;
+		public String numero;
+	}
+
+	public class UsuarioWebUsernameProcessoNumeroGetResponse implements ISwaggerResponse {
+		public String numero;
+		public String orgao;
+		public String unidade;
+		public String localNaUnidade;
+		public Boolean usuarioautorizado;
+		public Boolean segredodejustica;
+		public Boolean segredodejusticadesistema;
+		public Boolean segredodejusticaabsoluto;
+		public Boolean eletronico;
+		public Boolean sentenciado;
+		public Boolean baixado;
+		public String cdas;
+		public String dataultimomovimento;
+	}
+
+	public interface IUsuarioWebUsernameProcessoNumeroGet extends ISwaggerMethod {
+		public void run(UsuarioWebUsernameProcessoNumeroGetRequest req,
+				UsuarioWebUsernameProcessoNumeroGetResponse resp) throws Exception;
+	}
+
 	public class UsuarioUsernameMesasGetRequest implements ISwaggerRequest {
 		public String username;
 	}
@@ -632,7 +613,6 @@ public interface ISistemaProcessual {
 		public String username;
 		public String id;
 		public String id2;
-		public String orgao;
 	}
 
 	public class UsuarioUsernameLocalIdMesaId2DocumentosGetResponse implements ISwaggerResponse {
@@ -648,7 +628,6 @@ public interface ISistemaProcessual {
 		public String username;
 		public String id;
 		public String id2;
-		public String orgao;
 	}
 
 	public class UsuarioUsernameLocalIdMesaId2MovimentosGetResponse implements ISwaggerResponse {
@@ -664,7 +643,6 @@ public interface ISistemaProcessual {
 		public String username;
 		public String id;
 		public String id2;
-		public String orgao;
 	}
 
 	public class UsuarioUsernameLocalIdMesaId2ExpedientesGetResponse implements ISwaggerResponse {
@@ -674,36 +652,6 @@ public interface ISistemaProcessual {
 	public interface IUsuarioUsernameLocalIdMesaId2ExpedientesGet extends ISwaggerMethod {
 		public void run(UsuarioUsernameLocalIdMesaId2ExpedientesGetRequest req,
 				UsuarioUsernameLocalIdMesaId2ExpedientesGetResponse resp) throws Exception;
-	}
-
-	public class ClasseCnjIdGetRequest implements ISwaggerRequest {
-		public String id;
-		public String orgao;
-	}
-
-	public class ClasseCnjIdGetResponse implements ISwaggerResponse {
-		public String codigo;
-		public String descricao;
-		public Boolean ativo;
-	}
-
-	public interface IClasseCnjIdGet extends ISwaggerMethod {
-		public void run(ClasseCnjIdGetRequest req, ClasseCnjIdGetResponse resp) throws Exception;
-	}
-
-	public class AssuntoCnjIdGetRequest implements ISwaggerRequest {
-		public String id;
-		public String orgao;
-	}
-
-	public class AssuntoCnjIdGetResponse implements ISwaggerResponse {
-		public String codigo;
-		public String descricao;
-		public Boolean ativo;
-	}
-
-	public interface IAssuntoCnjIdGet extends ISwaggerMethod {
-		public void run(AssuntoCnjIdGetRequest req, AssuntoCnjIdGetResponse resp) throws Exception;
 	}
 
 }

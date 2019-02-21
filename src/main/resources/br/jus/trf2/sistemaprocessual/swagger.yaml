@@ -25,31 +25,6 @@ tags:
     description: Mesa Virtual
     
 paths:
-  /autenticar:
-    post:
-      description: Autenticar usuário
-      tags: [auth]
-      consumes: ["application/x-www-form-urlencoded"]
-      parameters:
-        - $ref: "#/parameters/login"
-        - $ref: "#/parameters/senha"
-      responses:
-        200:
-          description: Successful response
-          schema:
-            type: object
-            properties:
-              nome:
-                $ref: "#/definitions/Nome"
-              cpf:
-                $ref: "#/definitions/CPF"
-              email:
-                $ref: "#/definitions/Email"
-        500:
-          description: Error ocurred
-          schema:
-            $ref: "#/definitions/Error"
-
   /usuario-web/{username}:
     get:
       description: Obter dados de um usuário web, ou autenticar usando Basic Authentication
@@ -68,11 +43,14 @@ paths:
                 $ref: "#/definitions/CPF"
               email:
                 $ref: "#/definitions/Email"
-              usuarios:
-                type: array
-                items:
-                  $ref: "#/definitions/Usuario"
-                
+              codusu:
+                type: string
+              codusuweb:
+                type: string
+              codunidade:
+                type: string
+              perfil:
+                type: string
         500:
           description: Error ocurred
           schema:
@@ -92,8 +70,8 @@ paths:
             properties:
               numero:
                 $ref: "#/definitions/Numero"
-              orgao:
-                $ref: "#/definitions/Orgao"
+              sistema:
+                $ref: "#/definitions/Sistema"
               unidade:
                 $ref: "#/definitions/Unidade"
               localNaUnidade:
@@ -149,8 +127,6 @@ paths:
     get:
       description: Localidades de órgão
       tags: [peticao-inicial]
-      parameters:
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -172,7 +148,6 @@ paths:
       tags: [peticao-inicial]
       parameters:
         - $ref: "#/parameters/id"
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -195,7 +170,6 @@ paths:
       parameters:
         - $ref: "#/parameters/id"
         - $ref: "#/parameters/id2"
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -217,7 +191,6 @@ paths:
       tags: [peticao-inicial]
       parameters:
         - $ref: "#/parameters/documento"
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -239,7 +212,6 @@ paths:
       tags: [peticao-inicial]
       parameters:
         - $ref: "#/parameters/documento"
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -261,7 +233,6 @@ paths:
       tags: [peticao-inicial]
       parameters:
         - $ref: "#/parameters/documento"
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -277,12 +248,11 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
-  /orgao-publico/listar:
+  /sistema-publico/listar:
     get:
       description: Listagem de órgãos públicos
       tags: [peticao-inicial]
       parameters:
-        - $ref: "#/parameters/orgaoqueryopcional"
         - $ref: "#/parameters/tipodedocumentoqueryopcional"
       responses:
         200:
@@ -475,8 +445,8 @@ paths:
             properties:
               numero:
                 $ref: "#/definitions/Numero"
-              orgao:
-                $ref: "#/definitions/Orgao"
+              sistema:
+                $ref: "#/definitions/Sistema"
               unidade:
                 $ref: "#/definitions/Unidade"
               localNaUnidade:
@@ -533,7 +503,6 @@ paths:
         - $ref: "#/parameters/username"
         - $ref: "#/parameters/id"
         - $ref: "#/parameters/id2"
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -557,7 +526,6 @@ paths:
         - $ref: "#/parameters/username"
         - $ref: "#/parameters/id"
         - $ref: "#/parameters/id2"
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -581,7 +549,6 @@ paths:
         - $ref: "#/parameters/username"
         - $ref: "#/parameters/id"
         - $ref: "#/parameters/id2"
-        - $ref: "#/parameters/orgaoquery"
       responses:
         200:
           description: Successful response
@@ -604,18 +571,6 @@ parameters:
     name: numero
     in: path
     description: Número do processo só algarismos
-    required: true
-    type: string
-  login:
-    name: login
-    in: formData
-    description: Login do usuário
-    required: true
-    type: string
-  senha:
-    name: senha
-    in: formData
-    description: Senha do usuário
     required: true
     type: string
   username:
@@ -678,18 +633,6 @@ parameters:
     description: Número da id só algarismos
     required: true
     type: string
-  orgaoquery:
-    name: orgao
-    in: query
-    description: Órgao
-    required: true
-    type: string
-  orgaoqueryopcional:
-    name: orgao
-    in: query
-    description: Órgao
-    required: false
-    type: string
   tipodedocumentoqueryopcional:
     name: tipodedocumento
     in: query
@@ -719,27 +662,6 @@ definitions:
     type: string
     example: rcrivano@teste.com
     
-  Usuario:
-    description: Tipo de usuário
-    type: object
-    properties:
-      orgao:
-        type: string
-      codusu:
-        type: string
-      codusuweb:
-        type: string
-      codunidade:
-        type: string
-      nome:
-        type: string
-      cpf:
-        type: string
-      email:
-        type: string
-      perfil:
-        type: string
-
   TipoPeticaoIntercorrente:
     description: Tipo de petição intercorrente
     type: object
@@ -748,7 +670,7 @@ definitions:
         type: string
       descricao:
         type: string
-      orgao:
+      sistema:
         type: string
 
   IdNome:
@@ -822,14 +744,14 @@ definitions:
         type: string
       unidade:
         type: string
-      orgao:
+      sistema:
         type: string
 
   Mesa:
     description: Mesa virtual
     type: object
     properties:
-      orgao:
+      sistema:
         type: string
       idlocal:
         type: string
@@ -896,7 +818,7 @@ definitions:
     type: string
     example: 00002294020154020000
 
-  Orgao:
+  Sistema:
     description: Órgão do processo
     type: string
     example: JFRJ
@@ -966,7 +888,7 @@ definitions:
     description: Dados sobre pessoa física ou jurídica
     type: object
     properties:
-      orgao:
+      sistema:
         type: string
       id:
         type: string
@@ -995,7 +917,7 @@ definitions:
         type: string
       unidadeTipo:
         type: string
-      orgao:
+      sistema:
         type: string
       localidade:
         type: string
@@ -1026,8 +948,8 @@ definitions:
     properties:
       numero:
         $ref: "#/definitions/Numero"
-      orgao:
-        $ref: "#/definitions/Orgao"
+      sistema:
+        $ref: "#/definitions/Sistema"
       unidade:
         $ref: "#/definitions/Unidade"
       localNaUnidade:
