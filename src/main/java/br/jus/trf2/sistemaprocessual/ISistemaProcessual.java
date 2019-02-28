@@ -335,6 +335,21 @@ public interface ISistemaProcessual {
 				LocalidadeIdEspecialidadeId2ClasseGetResponse resp) throws Exception;
 	}
 
+	public class LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetRequest implements ISwaggerRequest {
+		public String id;
+		public String id2;
+		public String id3;
+	}
+
+	public class LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetResponse implements ISwaggerResponse {
+		public List<IdNome> list;
+	}
+
+	public interface ILocalidadeIdEspecialidadeId2ClasseId3AssuntoGet extends ISwaggerMethod {
+		public void run(LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetRequest req,
+				LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetResponse resp) throws Exception;
+	}
+
 	public class PessoaFisicaDocumentoGetRequest implements ISwaggerRequest {
 		public String documento;
 	}

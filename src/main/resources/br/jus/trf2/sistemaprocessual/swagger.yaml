@@ -185,6 +185,29 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
+  /localidade/{id}/especialidade/{id2}/classe/{id3}/assunto:
+    get:
+      description: Assuntos da localidade/especialidade/classe
+      tags: [peticao-inicial]
+      parameters:
+        - $ref: "#/parameters/id"
+        - $ref: "#/parameters/id2"
+        - $ref: "#/parameters/id3"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              list:
+                type: array
+                items:
+                  $ref: "#/definitions/IdNome"
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
   /pessoa-fisica/{documento}:
     get:
       description: Pessoa Física
@@ -629,6 +652,12 @@ parameters:
     type: string
   id2:
     name: id2
+    in: path
+    description: Número da id só algarismos
+    required: true
+    type: string
+  id3:
+    name: id3
     in: path
     description: Número da id só algarismos
     required: true
