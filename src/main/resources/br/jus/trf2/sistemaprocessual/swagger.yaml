@@ -70,8 +70,8 @@ paths:
             properties:
               numero:
                 $ref: "#/definitions/Numero"
-              sistema:
-                $ref: "#/definitions/Sistema"
+              orgao:
+                $ref: "#/definitions/Orgao"
               unidade:
                 $ref: "#/definitions/Unidade"
               localNaUnidade:
@@ -118,6 +118,25 @@ paths:
             Content-Disposition:
               type: string
               description: attachment; filename=processo.pdf
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
+  /peticao/inicial/tipos-documento:
+    get:
+      description: Tipos de documento para petição inicial
+      tags: [peticao-inicial]
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              list:
+                type: array
+                items:
+                  $ref: "#/definitions/IdNome"
         500:
           description: Error ocurred
           schema:
@@ -271,7 +290,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
-  /sistema-publico/listar:
+  /orgao-publico/listar:
     get:
       description: Listagem de órgãos públicos
       tags: [peticao-inicial]
@@ -468,8 +487,8 @@ paths:
             properties:
               numero:
                 $ref: "#/definitions/Numero"
-              sistema:
-                $ref: "#/definitions/Sistema"
+              orgao:
+                $ref: "#/definitions/Orgao"
               unidade:
                 $ref: "#/definitions/Unidade"
               localNaUnidade:
@@ -699,8 +718,6 @@ definitions:
         type: string
       descricao:
         type: string
-      sistema:
-        type: string
 
   IdNome:
     description: Id e nome
@@ -773,15 +790,11 @@ definitions:
         type: string
       unidade:
         type: string
-      sistema:
-        type: string
 
   Mesa:
     description: Mesa virtual
     type: object
     properties:
-      sistema:
-        type: string
       idlocal:
         type: string
       idmesa:
@@ -847,7 +860,7 @@ definitions:
     type: string
     example: 00002294020154020000
 
-  Sistema:
+  Orgao:
     description: Órgão do processo
     type: string
     example: JFRJ
@@ -917,7 +930,7 @@ definitions:
     description: Dados sobre pessoa física ou jurídica
     type: object
     properties:
-      sistema:
+      orgao:
         type: string
       id:
         type: string
@@ -946,7 +959,7 @@ definitions:
         type: string
       unidadeTipo:
         type: string
-      sistema:
+      orgao:
         type: string
       localidade:
         type: string
@@ -977,8 +990,8 @@ definitions:
     properties:
       numero:
         $ref: "#/definitions/Numero"
-      sistema:
-        $ref: "#/definitions/Sistema"
+      orgao:
+        $ref: "#/definitions/Orgao"
       unidade:
         $ref: "#/definitions/Unidade"
       localNaUnidade:

@@ -23,7 +23,6 @@ public interface ISistemaProcessual {
 	public class TipoPeticaoIntercorrente implements ISwaggerModel {
 		public String id;
 		public String descricao;
-		public String sistema;
 	}
 
 	public class IdNome implements ISwaggerModel {
@@ -63,11 +62,9 @@ public interface ISistemaProcessual {
 		public String dataprotocolo;
 		public String classe;
 		public String unidade;
-		public String sistema;
 	}
 
 	public class Mesa implements ISwaggerModel {
-		public String sistema;
 		public String idlocal;
 		public String idmesa;
 		public String nome;
@@ -104,7 +101,7 @@ public interface ISistemaProcessual {
 	public class Numero implements ISwaggerModel {
 	}
 
-	public class Sistema implements ISwaggerModel {
+	public class Orgao implements ISwaggerModel {
 	}
 
 	public class Unidade implements ISwaggerModel {
@@ -150,7 +147,7 @@ public interface ISistemaProcessual {
 	}
 
 	public class Pessoa implements ISwaggerModel {
-		public String sistema;
+		public String orgao;
 		public String id;
 		public String nome;
 		public String documento;
@@ -165,7 +162,7 @@ public interface ISistemaProcessual {
 		public String unidade;
 		public String unidadeNome;
 		public String unidadeTipo;
-		public String sistema;
+		public String orgao;
 		public String localidade;
 		public String teor;
 		public String eventoIntimacao;
@@ -181,7 +178,7 @@ public interface ISistemaProcessual {
 
 	public class Processo implements ISwaggerModel {
 		public String numero;
-		public String sistema;
+		public String orgao;
 		public String unidade;
 		public String localNaUnidade;
 		public Boolean usuarioautorizado;
@@ -295,6 +292,18 @@ public interface ISistemaProcessual {
 
 	public interface IProcessoNumeroPdfGet extends ISwaggerMethod {
 		public void run(ProcessoNumeroPdfGetRequest req, ProcessoNumeroPdfGetResponse resp) throws Exception;
+	}
+
+	public class PeticaoInicialTiposDocumentoGetRequest implements ISwaggerRequest {
+	}
+
+	public class PeticaoInicialTiposDocumentoGetResponse implements ISwaggerResponse {
+		public List<IdNome> list;
+	}
+
+	public interface IPeticaoInicialTiposDocumentoGet extends ISwaggerMethod {
+		public void run(PeticaoInicialTiposDocumentoGetRequest req, PeticaoInicialTiposDocumentoGetResponse resp)
+				throws Exception;
 	}
 
 	public class LocalidadeGetRequest implements ISwaggerRequest {
