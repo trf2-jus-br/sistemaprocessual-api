@@ -230,6 +230,7 @@ public interface ISistemaProcessual {
 		public Boolean eletronico;
 		public Boolean sentenciado;
 		public Boolean baixado;
+		public Boolean perdecompetencia;
 		public String cdas;
 		public String dataultimomovimento;
 	}
@@ -612,6 +613,7 @@ public interface ISistemaProcessual {
 		public Boolean eletronico;
 		public Boolean sentenciado;
 		public Boolean baixado;
+		public Boolean perdecompetencia;
 		public String cdas;
 		public String dataultimomovimento;
 	}

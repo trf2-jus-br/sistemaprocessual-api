@@ -90,6 +90,8 @@ paths:
                 $ref: "#/definitions/Sentenciado"
               baixado:
                 $ref: "#/definitions/Baixado"
+              perdecompetencia:
+                $ref: "#/definitions/PerdeCompetencia"
               cdas:
                 $ref: "#/definitions/CDAs"
               dataultimomovimento:
@@ -507,6 +509,8 @@ paths:
                 $ref: "#/definitions/Sentenciado"
               baixado:
                 $ref: "#/definitions/Baixado"
+              perdecompetencia:
+                $ref: "#/definitions/PerdeCompetencia"
               cdas:
                 $ref: "#/definitions/CDAs"
               dataultimomovimento:
@@ -916,6 +920,10 @@ definitions:
     
   Baixado:
     description: Processo já baixado?
+    type: boolean
+    
+  PerdeCompetencia:
+    description: Processo está tramitando em outro órgão?
     type: boolean
     
   CDAs:
