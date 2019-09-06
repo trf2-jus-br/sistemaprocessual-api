@@ -25,7 +25,7 @@ tags:
     description: Mesa Virtual
     
 paths:
-  /usuario-web/{username}:
+  /usuario/{username}:
     get:
       description: Obter dados de um usuário web, ou autenticar usando Basic Authentication
       tags: [auth]
@@ -45,12 +45,12 @@ paths:
                 $ref: "#/definitions/Email"
               codusu:
                 type: string
-              codusuweb:
-                type: string
               codunidade:
                 type: string
               perfil:
                 type: string
+              interno:
+                type: boolean
         500:
           description: Error ocurred
           schema:
@@ -333,7 +333,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
-  /usuario-web/{username}/peticao-intercorrente/contar:
+  /usuario/{username}/peticao-intercorrente/contar:
     get:
       description: Validar o número do processo
       tags: [peticao-intercorrente]
@@ -355,7 +355,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
-  /usuario-web/{username}/peticao-intercorrente/listar:
+  /usuario/{username}/peticao-intercorrente/listar:
     get:
       description: Validar o número do processo
       tags: [peticao-intercorrente]
@@ -377,7 +377,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
-  /usuario-web/{username}/aviso-confirmado/contar:
+  /usuario/{username}/aviso-confirmado/contar:
     get:
       description: Listar a quantidade de avisos confirmados nos últimos dias
       tags: [aviso]
@@ -399,7 +399,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
-  /usuario-web/{username}/aviso-confirmado/listar:
+  /usuario/{username}/aviso-confirmado/listar:
     get:
       description: Listar os avisos confirmados
       tags: [aviso]
@@ -425,7 +425,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
-  /usuario-web/{username}/aviso-pendente/exportar:
+  /usuario/{username}/aviso-pendente/exportar:
     get:
       description: Obter o XML dos avisos
       tags: [aviso]
@@ -449,7 +449,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
-  /usuario-web/{username}/aviso-confirmado/exportar:
+  /usuario/{username}/aviso-confirmado/exportar:
     get:
       description: Obter o XML dos avisos confirmados
       tags: [aviso]
@@ -473,7 +473,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
-  /usuario-web/{username}/processo/{numero}:
+  /usuario/{username}/processo/{numero}:
     get:
       description: Validar o número do processo
       tags: [processo]
