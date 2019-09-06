@@ -45,7 +45,13 @@ paths:
                 $ref: "#/definitions/Email"
               codusu:
                 type: string
+              codentidade:
+                type: string
+              entidade:
+                type: string
               codunidade:
+                type: string
+              unidade:
                 type: string
               perfil:
                 type: string

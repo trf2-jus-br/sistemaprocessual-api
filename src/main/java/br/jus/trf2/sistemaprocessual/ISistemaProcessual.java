@@ -205,7 +205,10 @@ public interface ISistemaProcessual {
 		public String cpf;
 		public String email;
 		public String codusu;
+		public String codentidade;
+		public String entidade;
 		public String codunidade;
+		public String unidade;
 		public String perfil;
 		public Boolean interno;
 	}
