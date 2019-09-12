@@ -68,6 +68,7 @@ paths:
       tags: [processo]
       parameters:
         - $ref: "#/parameters/numero"
+        - $ref: "#/parameters/listartipopeticaointercorrente"
       responses:
         200:
           description: Successful response
@@ -102,6 +103,10 @@ paths:
                 $ref: "#/definitions/CDAs"
               dataultimomovimento:
                 $ref: "#/definitions/DataUltimoMovimento"
+              tipopeticaointercorrente:
+                type: array
+                items:
+                  $ref: "#/definitions/TipoPeticaoIntercorrente"
         500:
           description: Error ocurred
           schema:
@@ -319,11 +324,13 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
-  /peticao/intercorrente/tipos:
+  /usuario/{username}/processo/{numero}/peticao-intercorrente/tipos:
     get:
       description: Tipos de petição intercorrente
       tags: [peticao-intercorrente]
-      parameters: []
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/numero"
       responses:
         200:
           description: Successful response
@@ -615,8 +622,6 @@ paths:
           description: Error ocurred
           schema:
             $ref: "#/definitions/Error"
-            
-
 
 parameters:
   numero:

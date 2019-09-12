@@ -236,6 +236,7 @@ public interface ISistemaProcessual {
 		public Boolean perdecompetencia;
 		public String cdas;
 		public String dataultimomovimento;
+		public List<TipoPeticaoIntercorrente> tipopeticaointercorrente;
 	}
 
 	public interface IProcessoValidarNumeroGet extends ISwaggerMethod {
@@ -412,15 +413,17 @@ public interface ISistemaProcessual {
 		public void run(OrgaoPublicoListarGetRequest req, OrgaoPublicoListarGetResponse resp) throws Exception;
 	}
 
-	public class PeticaoIntercorrenteTiposGetRequest implements ISwaggerRequest {
+	public class UsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGetRequest implements ISwaggerRequest {
+		public String username;
+		public String numero;
 	}
 
-	public class PeticaoIntercorrenteTiposGetResponse implements ISwaggerResponse {
+	public class UsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGetResponse implements ISwaggerResponse {
 		public List<TipoPeticaoIntercorrente> list;
 	}
 
-	public interface IPeticaoIntercorrenteTiposGet extends ISwaggerMethod {
-		public void run(PeticaoIntercorrenteTiposGetRequest req, PeticaoIntercorrenteTiposGetResponse resp)
+	public interface IUsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGet extends ISwaggerMethod {
+		public void run(UsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGetRequest req, UsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGetResponse resp)
 				throws Exception;
 	}
 
