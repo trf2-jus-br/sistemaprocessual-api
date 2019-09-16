@@ -324,7 +324,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
-  /usuario/{username}/processo/{numero}/peticao-intercorrente/tipos:
+  /usuario/{username}/processo/{numero}/peticao-intercorrente/validar:
     get:
       description: Tipos de petição intercorrente
       tags: [peticao-intercorrente]
@@ -337,7 +337,9 @@ paths:
           schema:
             type: object
             properties:
-              list:
+              identencerraprazos:
+                type: string
+              tipos:
                 type: array
                 items:
                   $ref: "#/definitions/TipoPeticaoIntercorrente"

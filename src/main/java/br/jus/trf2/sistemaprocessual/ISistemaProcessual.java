@@ -413,17 +413,18 @@ public interface ISistemaProcessual {
 		public void run(OrgaoPublicoListarGetRequest req, OrgaoPublicoListarGetResponse resp) throws Exception;
 	}
 
-	public class UsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGetRequest implements ISwaggerRequest {
+	public class UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetRequest implements ISwaggerRequest {
 		public String username;
 		public String numero;
 	}
 
-	public class UsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGetResponse implements ISwaggerResponse {
-		public List<TipoPeticaoIntercorrente> list;
+	public class UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetResponse implements ISwaggerResponse {
+		public String identencerraprazos;
+		public List<TipoPeticaoIntercorrente> tipos;
 	}
 
-	public interface IUsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGetRequest req, UsuarioUsernameProcessoNumeroPeticaoIntercorrenteTiposGetResponse resp)
+	public interface IUsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGet extends ISwaggerMethod {
+		public void run(UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetRequest req, UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetResponse resp)
 				throws Exception;
 	}
 
