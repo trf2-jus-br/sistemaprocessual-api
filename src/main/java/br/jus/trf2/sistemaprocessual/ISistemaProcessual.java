@@ -420,6 +420,8 @@ public interface ISistemaProcessual {
 
 	public class UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetResponse implements ISwaggerResponse {
 		public String identencerraprazos;
+		public Double sigilo;
+		public Boolean parte;
 		public List<TipoPeticaoIntercorrente> tipos;
 	}
 
