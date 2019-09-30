@@ -324,6 +324,28 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
+  /usuario/{username}/processo/{numero}/consultar:
+    get:
+      description: Consultar processo pelo número
+      tags: [processo]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/numero"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              numero:
+                $ref: "#/definitions/Numero"
+              magistrado:
+                $ref: "#/definitions/Magistrado"
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
   /usuario/{username}/processo/{numero}/peticao-intercorrente/validar:
     get:
       description: Tipos de petição intercorrente
@@ -880,6 +902,11 @@ definitions:
     description: Número do processo
     type: string
     example: 00002294020154020000
+
+  Magistrado:
+    description: Magistrado atuante no processo
+    type: string
+    example: Fulano de Tal
 
   Orgao:
     description: Órgão do processo

@@ -243,6 +243,20 @@ public interface ISistemaProcessual {
 		public void run(ProcessoValidarNumeroGetRequest req, ProcessoValidarNumeroGetResponse resp) throws Exception;
 	}
 
+	public class UsuarioUsernameProcessoNumeroConsultarGetRequest implements ISwaggerRequest {
+		public String username;
+		public String numero;
+	}
+
+	public class UsuarioUsernameProcessoNumeroConsultarGetResponse implements ISwaggerResponse {
+		public String numero;
+		public String magistrado;
+	}
+
+	public interface IUsuarioUsernameProcessoNumeroConsultarGet extends ISwaggerMethod {
+		public void run(UsuarioUsernameProcessoNumeroConsultarGetRequest req, UsuarioUsernameProcessoNumeroConsultarGetResponse resp) throws Exception;
+	}
+
 	public class ProcessoNumeroPdfGetRequest implements ISwaggerRequest {
 		public String numero;
 	}
