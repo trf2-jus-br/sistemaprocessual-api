@@ -217,32 +217,6 @@ public interface ISistemaProcessual {
 		public void run(UsuarioUsernameGetRequest req, UsuarioUsernameGetResponse resp) throws Exception;
 	}
 
-	public class ProcessoValidarNumeroGetRequest implements ISwaggerRequest {
-		public String numero;
-	}
-
-	public class ProcessoValidarNumeroGetResponse implements ISwaggerResponse {
-		public String numero;
-		public String orgao;
-		public String unidade;
-		public String localNaUnidade;
-		public Boolean usuarioautorizado;
-		public Boolean segredodejustica;
-		public Boolean segredodejusticadesistema;
-		public Boolean segredodejusticaabsoluto;
-		public Boolean eletronico;
-		public Boolean sentenciado;
-		public Boolean baixado;
-		public Boolean perdecompetencia;
-		public String cdas;
-		public String dataultimomovimento;
-		public List<TipoPeticaoIntercorrente> tipopeticaointercorrente;
-	}
-
-	public interface IProcessoValidarNumeroGet extends ISwaggerMethod {
-		public void run(ProcessoValidarNumeroGetRequest req, ProcessoValidarNumeroGetResponse resp) throws Exception;
-	}
-
 	public class UsuarioUsernameProcessoNumeroConsultarGetRequest implements ISwaggerRequest {
 		public String username;
 		public String numero;

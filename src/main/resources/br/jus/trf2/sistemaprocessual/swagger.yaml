@@ -62,56 +62,6 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
-  /processo/validar/{numero}:
-    get:
-      description: Validar o número do processo
-      tags: [processo]
-      parameters:
-        - $ref: "#/parameters/numero"
-        - $ref: "#/parameters/listartipopeticaointercorrente"
-      responses:
-        200:
-          description: Successful response
-          schema:
-            type: object
-            properties:
-              numero:
-                $ref: "#/definitions/Numero"
-              orgao:
-                $ref: "#/definitions/Orgao"
-              unidade:
-                $ref: "#/definitions/Unidade"
-              localNaUnidade:
-                $ref: "#/definitions/LocalNaUnidade"
-              usuarioautorizado:
-                $ref: "#/definitions/UsuarioAutorizado"
-              segredodejustica:
-                $ref: "#/definitions/SegredoDeJustica"
-              segredodejusticadesistema:
-                $ref: "#/definitions/SegredoDeJusticaDeSistema"
-              segredodejusticaabsoluto:
-                $ref: "#/definitions/SegredoDeJusticaAbsoluto"
-              eletronico:
-                $ref: "#/definitions/Eletronico"
-              sentenciado:
-                $ref: "#/definitions/Sentenciado"
-              baixado:
-                $ref: "#/definitions/Baixado"
-              perdecompetencia:
-                $ref: "#/definitions/PerdeCompetencia"
-              cdas:
-                $ref: "#/definitions/CDAs"
-              dataultimomovimento:
-                $ref: "#/definitions/DataUltimoMovimento"
-              tipopeticaointercorrente:
-                type: array
-                items:
-                  $ref: "#/definitions/TipoPeticaoIntercorrente"
-        500:
-          description: Error ocurred
-          schema:
-            $ref: "#/definitions/Error"
-
   /processo/{numero}/pdf:
     get:
       description: Obter o PDF completo pelo número do processo 
