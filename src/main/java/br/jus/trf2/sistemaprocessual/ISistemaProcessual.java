@@ -72,13 +72,25 @@ public interface ISistemaProcessual {
 	}
 
 	public class MesaDocumento implements ISwaggerModel {
+		public Date dataDeInclusao;
 		public String id;
-		public String datadeentrada;
-		public String numerodoprocesso;
-		public String numerododocumento;
-		public String motivo;
-		public String situacao;
-		public String usuarioinclusao;
+		public String numeroDoDocumento;
+		public String numeroDoProcesso;
+		public String descricao;
+		public String status;
+		public String descricaoDoStatus;
+		public String tipoDoDocumento;
+		public String identificadorDoUsuarioQueIncluiu;
+		public String nomeDoUsuarioQueIncluiu;
+		public String conteudo;
+		public List<Lembrete> lembretes;
+	}
+
+	public class Lembrete implements ISwaggerModel {
+		public Date dataDeInclusao;
+		public String id;
+		public String identificadorDoUsuario;
+		public String nomeDoUsuario;
 		public String conteudo;
 	}
 

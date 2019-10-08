@@ -781,19 +781,46 @@ definitions:
     description: Mesa virtual
     type: object
     properties:
+      dataDeInclusao:
+        type: string
+        format: date-time
       id:
         type: string
-      datadeentrada:
+      numeroDoDocumento:
         type: string
-      numerodoprocesso:
+      numeroDoProcesso:
         type: string
-      numerododocumento:
+      descricao:
         type: string
-      motivo:
+      status:
         type: string
-      situacao:
+      descricaoDoStatus:
         type: string
-      usuarioinclusao:
+      tipoDoDocumento:
+        type: string
+      identificadorDoUsuarioQueIncluiu:
+        type: string
+      nomeDoUsuarioQueIncluiu:
+        type: string
+      conteudo:
+        type: string
+      lembretes:
+        type: array
+        items:
+          $ref: "#/definitions/Lembrete"
+
+  Lembrete:
+    description: Lembretes
+    type: object
+    properties:
+      dataDeInclusao:
+        type: string
+        format: date-time
+      id:
+        type: string
+      identificadorDoUsuario:
+        type: string
+      nomeDoUsuario:
         type: string
       conteudo:
         type: string
