@@ -540,6 +540,7 @@ paths:
         - $ref: "#/parameters/username"
         - $ref: "#/parameters/id"
         - $ref: "#/parameters/id2"
+        - $ref: "#/parameters/ids"
       responses:
         200:
           description: Successful response
@@ -554,15 +555,13 @@ paths:
           description: Error ocurred
           schema:
             $ref: "#/definitions/Error"
-            
-  /usuario/{username}/local/{id}/mesa/{id2}/movimentos:
+
+  /usuario/{username}/avisos:
     get:
-      description: Obter documentos em mesa virtual
-      tags: [mesa]
+      description: Obter lista de avisos de um usuário
+      tags: [aviso]
       parameters:
         - $ref: "#/parameters/username"
-        - $ref: "#/parameters/id"
-        - $ref: "#/parameters/id2"
       responses:
         200:
           description: Successful response
@@ -572,30 +571,7 @@ paths:
               list:
                 type: array
                 items:
-                  $ref: "#/definitions/MesaMovimento"
-        500:
-          description: Error ocurred
-          schema:
-            $ref: "#/definitions/Error"
-            
-  /usuario/{username}/local/{id}/mesa/{id2}/expedientes:
-    get:
-      description: Obter documentos em mesa virtual
-      tags: [mesa]
-      parameters:
-        - $ref: "#/parameters/username"
-        - $ref: "#/parameters/id"
-        - $ref: "#/parameters/id2"
-      responses:
-        200:
-          description: Successful response
-          schema:
-            type: object
-            properties:
-              list:
-                type: array
-                items:
-                  $ref: "#/definitions/MesaExpediente"
+                  $ref: "#/definitions/Aviso"
         500:
           description: Error ocurred
           schema:
@@ -673,6 +649,12 @@ parameters:
     in: path
     description: Número da id só algarismos
     required: true
+    type: string
+  ids:
+    name: ids
+    in: query
+    description: Lista de IDs separadas por vírgulas   
+    required: false
     type: string
   tipodedocumentoqueryopcional:
     name: tipodedocumento
@@ -799,6 +781,8 @@ definitions:
     description: Mesa virtual
     type: object
     properties:
+      id:
+        type: string
       datadeentrada:
         type: string
       numerodoprocesso:
@@ -811,41 +795,7 @@ definitions:
         type: string
       usuarioinclusao:
         type: string
-
-  MesaMovimento:
-    description: Mesa virtual
-    type: object
-    properties:
-      coddoc:
-        type: string
-      segredo:
-        type: string
-      numerodoprocesso:
-        type: string
-      ato:
-        type: string
-      motivo:
-        type: string
-      datahoramovimento:
-        type: string
-      codsecao:
-        type: string
-
-  MesaExpediente:
-    description: Mesa virtual
-    type: object
-    properties:
-      codsecao:
-        type: string
-      coddoc:
-        type: string
-      numerododocumento:
-        type: string
-      numerodoprocesso:
-        type: string
-      segredo:
-        type: string
-      descr:
+      conteudo:
         type: string
 
   Numero:
@@ -951,6 +901,7 @@ definitions:
         type: string
       dataAviso:
         type: string
+        format: date-time
       tipo:
         type: string
       processo:
@@ -979,6 +930,7 @@ definitions:
         type: string
       dataLimiteIntimacaoAutomatica:
         type: string
+        format: date-time
       assunto:
         type: string
       dataConfirmacao:
