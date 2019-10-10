@@ -464,48 +464,23 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
-  /usuario/{username}/processo/{numero}:
+  /usuario/{username}/processo/{numeros}:
     get:
       description: Validar o número do processo
       tags: [processo]
       parameters:
         - $ref: "#/parameters/username"
-        - $ref: "#/parameters/numero"
+        - $ref: "#/parameters/numeros"
       responses:
         200:
           description: Successful response
           schema:
-            $ref: "#/definitions/Processo"
             type: object
             properties:
-              numero:
-                $ref: "#/definitions/Numero"
-              orgao:
-                $ref: "#/definitions/Orgao"
-              unidade:
-                $ref: "#/definitions/Unidade"
-              localNaUnidade:
-                $ref: "#/definitions/LocalNaUnidade"
-              usuarioautorizado:
-                $ref: "#/definitions/UsuarioAutorizado"
-              segredodejustica:
-                $ref: "#/definitions/SegredoDeJustica"
-              segredodejusticadesistema:
-                $ref: "#/definitions/SegredoDeJusticaDeSistema"
-              segredodejusticaabsoluto:
-                $ref: "#/definitions/SegredoDeJusticaAbsoluto"
-              eletronico:
-                $ref: "#/definitions/Eletronico"
-              sentenciado:
-                $ref: "#/definitions/Sentenciado"
-              baixado:
-                $ref: "#/definitions/Baixado"
-              perdecompetencia:
-                $ref: "#/definitions/PerdeCompetencia"
-              cdas:
-                $ref: "#/definitions/CDAs"
-              dataultimomovimento:
-                $ref: "#/definitions/DataUltimoMovimento"
+              list:
+                type: array
+                items:
+                  $ref: "#/definitions/Processo"
         500:
           description: Error ocurred
           schema:
@@ -582,6 +557,12 @@ parameters:
     name: numero
     in: path
     description: Número do processo só algarismos
+    required: true
+    type: string
+  numeros:
+    name: numeros
+    in: path
+    description: Números de processo só algarismos separados por vírgulas
     required: true
     type: string
   username:
@@ -991,11 +972,13 @@ definitions:
         $ref: "#/definitions/Sentenciado"
       baixado:
         $ref: "#/definitions/Baixado"
+      perdecompetencia:
+        $ref: "#/definitions/PerdeCompetencia"
       cdas:
         $ref: "#/definitions/CDAs"
       dataultimomovimento:
         $ref: "#/definitions/DataUltimoMovimento"
-  
+
   Error:
     type: object
     properties:

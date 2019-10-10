@@ -190,6 +190,7 @@ public interface ISistemaProcessual {
 		public Boolean eletronico;
 		public Boolean sentenciado;
 		public Boolean baixado;
+		public Boolean perdecompetencia;
 		public String cdas;
 		public String dataultimomovimento;
 	}
@@ -555,30 +556,17 @@ public interface ISistemaProcessual {
 		public void run(UsuarioUsernameAvisoConfirmadoExportarGetRequest req, UsuarioUsernameAvisoConfirmadoExportarGetResponse resp) throws Exception;
 	}
 
-	public class UsuarioUsernameProcessoNumeroGetRequest implements ISwaggerRequest {
+	public class UsuarioUsernameProcessoNumerosGetRequest implements ISwaggerRequest {
 		public String username;
-		public String numero;
+		public String numeros;
 	}
 
-	public class UsuarioUsernameProcessoNumeroGetResponse implements ISwaggerResponse {
-		public String numero;
-		public String orgao;
-		public String unidade;
-		public String localNaUnidade;
-		public Boolean usuarioautorizado;
-		public Boolean segredodejustica;
-		public Boolean segredodejusticadesistema;
-		public Boolean segredodejusticaabsoluto;
-		public Boolean eletronico;
-		public Boolean sentenciado;
-		public Boolean baixado;
-		public Boolean perdecompetencia;
-		public String cdas;
-		public String dataultimomovimento;
+	public class UsuarioUsernameProcessoNumerosGetResponse implements ISwaggerResponse {
+		public List<Processo> list;
 	}
 
-	public interface IUsuarioUsernameProcessoNumeroGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameProcessoNumeroGetRequest req, UsuarioUsernameProcessoNumeroGetResponse resp) throws Exception;
+	public interface IUsuarioUsernameProcessoNumerosGet extends ISwaggerMethod {
+		public void run(UsuarioUsernameProcessoNumerosGetRequest req, UsuarioUsernameProcessoNumerosGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameMesasGetRequest implements ISwaggerRequest {
