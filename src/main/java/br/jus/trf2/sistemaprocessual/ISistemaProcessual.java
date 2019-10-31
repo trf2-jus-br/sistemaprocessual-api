@@ -76,6 +76,8 @@ public interface ISistemaProcessual {
 		public String id;
 		public String numeroDoDocumento;
 		public String numeroDoProcesso;
+		public String autor;
+		public String reu;
 		public String descricao;
 		public String status;
 		public String descricaoDoStatus;
@@ -193,6 +195,8 @@ public interface ISistemaProcessual {
 		public Boolean perdecompetencia;
 		public String cdas;
 		public String dataultimomovimento;
+		public String autor;
+		public String reu;
 	}
 
 	public class Error implements ISwaggerModel {

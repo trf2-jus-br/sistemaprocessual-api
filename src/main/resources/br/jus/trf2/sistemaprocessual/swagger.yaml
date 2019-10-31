@@ -653,7 +653,7 @@ parameters:
 definitions:
   Nome:
     type: string
-    description: Nome do usuário
+    description: Nome do usuário ou autor ou réu
     example: Renato Crivano
     
   CPF:
@@ -770,6 +770,10 @@ definitions:
       numeroDoDocumento:
         type: string
       numeroDoProcesso:
+        type: string
+      autor:
+        type: string
+      reu:
         type: string
       descricao:
         type: string
@@ -978,6 +982,10 @@ definitions:
         $ref: "#/definitions/CDAs"
       dataultimomovimento:
         $ref: "#/definitions/DataUltimoMovimento"
+      autor:
+        $ref: "#/definitions/Nome"
+      reu:
+        $ref: "#/definitions/Nome"
 
   Error:
     type: object
