@@ -617,6 +617,22 @@ public interface ISistemaProcessual {
 				UsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPostResponse resp) throws Exception;
 	}
 
+	public class UsuarioUsernameMesaIdDocumentoId2DevolverPostRequest implements ISwaggerRequest {
+		public String username;
+		public String id;
+		public String id2;
+		public String lembrete;
+	}
+
+	public class UsuarioUsernameMesaIdDocumentoId2DevolverPostResponse implements ISwaggerResponse {
+		public String status;
+	}
+
+	public interface IUsuarioUsernameMesaIdDocumentoId2DevolverPost extends ISwaggerMethod {
+		public void run(UsuarioUsernameMesaIdDocumentoId2DevolverPostRequest req,
+				UsuarioUsernameMesaIdDocumentoId2DevolverPostResponse resp) throws Exception;
+	}
+
 	public class UsuarioUsernameAvisosGetRequest implements ISwaggerRequest {
 		public String username;
 	}

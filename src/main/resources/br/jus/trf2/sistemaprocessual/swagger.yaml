@@ -550,6 +550,28 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
+  /usuario/{username}/mesa/{id}/documento/{id2}/devolver:
+    post:
+      description: Devolver minuta com lembrete
+      tags: [mesa]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/id"
+        - $ref: "#/parameters/id2"
+        - $ref: "#/parameters/lembrete"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
   /usuario/{username}/avisos:
     get:
       description: Obter lista de avisos de um usuário
@@ -672,6 +694,12 @@ parameters:
     name: html
     in: formData
     description: Html do documento a ser salvo
+    required: true
+    type: string
+  lembrete:
+    name: lembrete
+    in: formData
+    description: Lembrete da minuta que está sendo devolvida
     required: true
     type: string
 
