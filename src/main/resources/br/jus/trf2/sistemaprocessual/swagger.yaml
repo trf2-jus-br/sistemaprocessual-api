@@ -295,6 +295,10 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/TipoPeticaoIntercorrente"
+              avisos:
+                type: array
+                items:
+                  $ref: "#/definitions/AvisoPeticaoIntercorrente"
         500:
           description: Error ocurred
           schema:
@@ -727,6 +731,18 @@ definitions:
         type: string
       descricao:
         type: string
+
+  AvisoPeticaoIntercorrente:
+    description: Aviso de petição intercorrente
+    type: object
+    properties:
+      id:
+        type: string
+      evento:
+        type: string
+      data:
+        type: string
+        format: date-time
 
   IdNome:
     description: Id e nome

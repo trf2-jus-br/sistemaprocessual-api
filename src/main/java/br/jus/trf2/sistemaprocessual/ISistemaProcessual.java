@@ -26,6 +26,12 @@ public interface ISistemaProcessual {
 		public String descricao;
 	}
 
+	public class AvisoPeticaoIntercorrente implements ISwaggerModel {
+		public String id;
+		public String evento;
+		public Date data;
+	}
+
 	public class IdNome implements ISwaggerModel {
 		public String id;
 		public String nome;
@@ -363,6 +369,7 @@ public interface ISistemaProcessual {
 		public Double sigilo;
 		public Boolean parte;
 		public List<TipoPeticaoIntercorrente> tipos;
+		public List<AvisoPeticaoIntercorrente> avisos;
 	}
 
 	public interface IUsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGet extends ISwaggerMethod {
