@@ -92,6 +92,7 @@ public interface ISistemaProcessual {
 		public String nomeDoUsuarioQueIncluiu;
 		public String conteudo;
 		public List<Lembrete> lembretes;
+		public String siglaDaUnidade;
 	}
 
 	public class Lembrete implements ISwaggerModel {
