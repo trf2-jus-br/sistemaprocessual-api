@@ -91,8 +91,8 @@ public interface ISistemaProcessual {
 		public String identificadorDoUsuarioQueIncluiu;
 		public String nomeDoUsuarioQueIncluiu;
 		public String conteudo;
-		public List<Lembrete> lembretes;
 		public String siglaDaUnidade;
+		public List<Lembrete> lembretes;
 	}
 
 	public class Lembrete implements ISwaggerModel {
@@ -206,6 +206,19 @@ public interface ISistemaProcessual {
 		public String reu;
 	}
 
+	public class CDA implements ISwaggerModel {
+		public String numero;
+		public String processoadministrativo;
+		public String status;
+		public String grupo;
+		public String codigotributo;
+		public String tributo;
+		public Double valor;
+		public Double valorufir;
+		public Date dataorigem;
+		public Date datainclusao;
+	}
+
 	public class Error implements ISwaggerModel {
 		public String error;
 	}
@@ -239,8 +252,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IPeticaoInicialTiposDocumentoGet extends ISwaggerMethod {
-		public void run(PeticaoInicialTiposDocumentoGetRequest req, PeticaoInicialTiposDocumentoGetResponse resp)
-				throws Exception;
+		public void run(PeticaoInicialTiposDocumentoGetRequest req, PeticaoInicialTiposDocumentoGetResponse resp) throws Exception;
 	}
 
 	public class LocalidadeGetRequest implements ISwaggerRequest {
@@ -263,8 +275,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface ILocalidadeIdEspecialidadeGet extends ISwaggerMethod {
-		public void run(LocalidadeIdEspecialidadeGetRequest req, LocalidadeIdEspecialidadeGetResponse resp)
-				throws Exception;
+		public void run(LocalidadeIdEspecialidadeGetRequest req, LocalidadeIdEspecialidadeGetResponse resp) throws Exception;
 	}
 
 	public class LocalidadeIdEspecialidadeId2ClasseGetRequest implements ISwaggerRequest {
@@ -277,8 +288,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface ILocalidadeIdEspecialidadeId2ClasseGet extends ISwaggerMethod {
-		public void run(LocalidadeIdEspecialidadeId2ClasseGetRequest req,
-				LocalidadeIdEspecialidadeId2ClasseGetResponse resp) throws Exception;
+		public void run(LocalidadeIdEspecialidadeId2ClasseGetRequest req, LocalidadeIdEspecialidadeId2ClasseGetResponse resp) throws Exception;
 	}
 
 	public class LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetRequest implements ISwaggerRequest {
@@ -292,8 +302,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface ILocalidadeIdEspecialidadeId2ClasseId3AssuntoGet extends ISwaggerMethod {
-		public void run(LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetRequest req,
-				LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetResponse resp) throws Exception;
+		public void run(LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetRequest req, LocalidadeIdEspecialidadeId2ClasseId3AssuntoGetResponse resp) throws Exception;
 	}
 
 	public class PessoaFisicaDocumentoGetRequest implements ISwaggerRequest {
@@ -317,8 +326,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IPessoaJuridicaDocumentoGet extends ISwaggerMethod {
-		public void run(PessoaJuridicaDocumentoGetRequest req, PessoaJuridicaDocumentoGetResponse resp)
-				throws Exception;
+		public void run(PessoaJuridicaDocumentoGetRequest req, PessoaJuridicaDocumentoGetResponse resp) throws Exception;
 	}
 
 	public class AdvogadoDocumentoGetRequest implements ISwaggerRequest {
@@ -356,8 +364,20 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameProcessoNumeroConsultarGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameProcessoNumeroConsultarGetRequest req,
-				UsuarioUsernameProcessoNumeroConsultarGetResponse resp) throws Exception;
+		public void run(UsuarioUsernameProcessoNumeroConsultarGetRequest req, UsuarioUsernameProcessoNumeroConsultarGetResponse resp) throws Exception;
+	}
+
+	public class UsuarioUsernameProcessoNumeroInformacoesAdicionaisGetRequest implements ISwaggerRequest {
+		public String username;
+		public String numero;
+	}
+
+	public class UsuarioUsernameProcessoNumeroInformacoesAdicionaisGetResponse implements ISwaggerResponse {
+		public List<CDA> cdas;
+	}
+
+	public interface IUsuarioUsernameProcessoNumeroInformacoesAdicionaisGet extends ISwaggerMethod {
+		public void run(UsuarioUsernameProcessoNumeroInformacoesAdicionaisGetRequest req, UsuarioUsernameProcessoNumeroInformacoesAdicionaisGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetRequest implements ISwaggerRequest {
@@ -374,8 +394,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetRequest req,
-				UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetResponse resp) throws Exception;
+		public void run(UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetRequest req, UsuarioUsernameProcessoNumeroPeticaoIntercorrenteValidarGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernamePeticaoIntercorrenteContarGetRequest implements ISwaggerRequest {
@@ -388,8 +407,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernamePeticaoIntercorrenteContarGet extends ISwaggerMethod {
-		public void run(UsuarioUsernamePeticaoIntercorrenteContarGetRequest req,
-				UsuarioUsernamePeticaoIntercorrenteContarGetResponse resp) throws Exception;
+		public void run(UsuarioUsernamePeticaoIntercorrenteContarGetRequest req, UsuarioUsernamePeticaoIntercorrenteContarGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernamePeticaoIntercorrenteListarGetRequest implements ISwaggerRequest {
@@ -402,8 +420,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernamePeticaoIntercorrenteListarGet extends ISwaggerMethod {
-		public void run(UsuarioUsernamePeticaoIntercorrenteListarGetRequest req,
-				UsuarioUsernamePeticaoIntercorrenteListarGetResponse resp) throws Exception;
+		public void run(UsuarioUsernamePeticaoIntercorrenteListarGetRequest req, UsuarioUsernamePeticaoIntercorrenteListarGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameAvisoConfirmadoContarGetRequest implements ISwaggerRequest {
@@ -416,8 +433,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameAvisoConfirmadoContarGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameAvisoConfirmadoContarGetRequest req,
-				UsuarioUsernameAvisoConfirmadoContarGetResponse resp) throws Exception;
+		public void run(UsuarioUsernameAvisoConfirmadoContarGetRequest req, UsuarioUsernameAvisoConfirmadoContarGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameAvisoConfirmadoListarGetRequest implements ISwaggerRequest {
@@ -434,8 +450,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameAvisoConfirmadoListarGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameAvisoConfirmadoListarGetRequest req,
-				UsuarioUsernameAvisoConfirmadoListarGetResponse resp) throws Exception;
+		public void run(UsuarioUsernameAvisoConfirmadoListarGetRequest req, UsuarioUsernameAvisoConfirmadoListarGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameAvisoPendenteExportarGetRequest implements ISwaggerRequest {
@@ -452,47 +467,37 @@ public interface ISistemaProcessual {
 		public String getContenttype() {
 			return contenttype;
 		}
-
 		public void setContenttype(String contenttype) {
 			this.contenttype = contenttype;
 		}
-
 		public String getContentdisposition() {
 			return contentdisposition;
 		}
-
 		public void setContentdisposition(String contentdisposition) {
 			this.contentdisposition = contentdisposition;
 		}
-
 		public Long getContentlength() {
 			return contentlength;
 		}
-
 		public void setContentlength(Long contentlength) {
 			this.contentlength = contentlength;
 		}
-
 		public InputStream getInputstream() {
 			return inputstream;
 		}
-
 		public void setInputstream(InputStream inputstream) {
 			this.inputstream = inputstream;
 		}
-
 		public Map<String, List<String>> getHeaderFields() {
 			return headerFields;
 		}
-
 		public void setHeaderFields(Map<String, List<String>> headerFields) {
 			this.headerFields = headerFields;
 		}
 	}
 
 	public interface IUsuarioUsernameAvisoPendenteExportarGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameAvisoPendenteExportarGetRequest req,
-				UsuarioUsernameAvisoPendenteExportarGetResponse resp) throws Exception;
+		public void run(UsuarioUsernameAvisoPendenteExportarGetRequest req, UsuarioUsernameAvisoPendenteExportarGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameAvisoConfirmadoExportarGetRequest implements ISwaggerRequest {
@@ -509,47 +514,37 @@ public interface ISistemaProcessual {
 		public String getContenttype() {
 			return contenttype;
 		}
-
 		public void setContenttype(String contenttype) {
 			this.contenttype = contenttype;
 		}
-
 		public String getContentdisposition() {
 			return contentdisposition;
 		}
-
 		public void setContentdisposition(String contentdisposition) {
 			this.contentdisposition = contentdisposition;
 		}
-
 		public Long getContentlength() {
 			return contentlength;
 		}
-
 		public void setContentlength(Long contentlength) {
 			this.contentlength = contentlength;
 		}
-
 		public InputStream getInputstream() {
 			return inputstream;
 		}
-
 		public void setInputstream(InputStream inputstream) {
 			this.inputstream = inputstream;
 		}
-
 		public Map<String, List<String>> getHeaderFields() {
 			return headerFields;
 		}
-
 		public void setHeaderFields(Map<String, List<String>> headerFields) {
 			this.headerFields = headerFields;
 		}
 	}
 
 	public interface IUsuarioUsernameAvisoConfirmadoExportarGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameAvisoConfirmadoExportarGetRequest req,
-				UsuarioUsernameAvisoConfirmadoExportarGetResponse resp) throws Exception;
+		public void run(UsuarioUsernameAvisoConfirmadoExportarGetRequest req, UsuarioUsernameAvisoConfirmadoExportarGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameProcessoNumerosGetRequest implements ISwaggerRequest {
@@ -562,8 +557,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameProcessoNumerosGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameProcessoNumerosGetRequest req, UsuarioUsernameProcessoNumerosGetResponse resp)
-				throws Exception;
+		public void run(UsuarioUsernameProcessoNumerosGetRequest req, UsuarioUsernameProcessoNumerosGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameMesasGetRequest implements ISwaggerRequest {
@@ -590,8 +584,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameLocalIdMesaId2DocumentosGet extends ISwaggerMethod {
-		public void run(UsuarioUsernameLocalIdMesaId2DocumentosGetRequest req,
-				UsuarioUsernameLocalIdMesaId2DocumentosGetResponse resp) throws Exception;
+		public void run(UsuarioUsernameLocalIdMesaId2DocumentosGetRequest req, UsuarioUsernameLocalIdMesaId2DocumentosGetResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameMesaIdDocumentoId2SalvarPostRequest implements ISwaggerRequest {
@@ -606,8 +599,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameMesaIdDocumentoId2SalvarPost extends ISwaggerMethod {
-		public void run(UsuarioUsernameMesaIdDocumentoId2SalvarPostRequest req,
-				UsuarioUsernameMesaIdDocumentoId2SalvarPostResponse resp) throws Exception;
+		public void run(UsuarioUsernameMesaIdDocumentoId2SalvarPostRequest req, UsuarioUsernameMesaIdDocumentoId2SalvarPostResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPostRequest implements ISwaggerRequest {
@@ -621,8 +613,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPost extends ISwaggerMethod {
-		public void run(UsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPostRequest req,
-				UsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPostResponse resp) throws Exception;
+		public void run(UsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPostRequest req, UsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPostResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameMesaIdDocumentoId2DevolverPostRequest implements ISwaggerRequest {
@@ -637,8 +628,7 @@ public interface ISistemaProcessual {
 	}
 
 	public interface IUsuarioUsernameMesaIdDocumentoId2DevolverPost extends ISwaggerMethod {
-		public void run(UsuarioUsernameMesaIdDocumentoId2DevolverPostRequest req,
-				UsuarioUsernameMesaIdDocumentoId2DevolverPostResponse resp) throws Exception;
+		public void run(UsuarioUsernameMesaIdDocumentoId2DevolverPostRequest req, UsuarioUsernameMesaIdDocumentoId2DevolverPostResponse resp) throws Exception;
 	}
 
 	public class UsuarioUsernameAvisosGetRequest implements ISwaggerRequest {

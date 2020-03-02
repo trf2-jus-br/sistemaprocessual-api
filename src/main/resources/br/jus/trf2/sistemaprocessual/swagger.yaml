@@ -271,6 +271,27 @@ paths:
           description: Error ocurred
           schema:
             $ref: "#/definitions/Error"
+            
+  /usuario/{username}/processo/{numero}/informacoes-adicionais:
+    get:
+      description: Obter informações adicionais de um processo
+      tags: [processo]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/numero"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            properties:
+              cdas:
+                type: array
+                items:
+                  $ref: "#/definitions/CDA"
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
 
   /usuario/{username}/processo/{numero}/peticao-intercorrente/validar:
     get:
@@ -858,6 +879,8 @@ definitions:
         type: string
       conteudo:
         type: string
+      siglaDaUnidade:
+        type: string
       lembretes:
         type: array
         items:
@@ -1055,6 +1078,33 @@ definitions:
         $ref: "#/definitions/Nome"
       reu:
         $ref: "#/definitions/Nome"
+        
+  CDA:
+    description: CDA
+    type: object
+    properties:
+      numero:
+        type: string
+      processoadministrativo:
+        type: string
+      status:
+        type: string
+      grupo:
+        type: string
+      codigotributo:
+        type: string
+      tributo:
+        type: string
+      valor:
+        type: number
+      valorufir:
+        type: number
+      dataorigem:
+        type: string
+        format: date-time
+      datainclusao:
+        type: string
+        format: date-time
 
   Error:
     type: object
