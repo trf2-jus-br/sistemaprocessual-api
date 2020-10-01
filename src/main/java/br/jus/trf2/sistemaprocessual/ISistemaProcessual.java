@@ -185,6 +185,7 @@ public interface ISistemaProcessual {
 		public String assunto;
 		public String dataConfirmacao;
 		public String usuarioConfirmacao;
+		public Date dataFinalPrazo;
 	}
 
 	public class Processo implements ISwaggerModel {
