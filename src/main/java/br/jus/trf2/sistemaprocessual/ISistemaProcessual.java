@@ -611,6 +611,7 @@ public interface ISistemaProcessual {
 
 	public class UsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPostResponse implements ISwaggerResponse {
 		public String status;
+		public String errormsg;
 	}
 
 	public interface IUsuarioUsernameMesaIdDocumentoId2AssinarComSenhaPost extends ISwaggerMethod {
