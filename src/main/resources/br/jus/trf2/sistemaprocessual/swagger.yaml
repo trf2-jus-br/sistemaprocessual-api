@@ -23,7 +23,7 @@ tags:
     description: Citação e Intimação
   - name: mesa
     description: Mesa Virtual
-    
+
 paths:
   /usuario/{username}:
     get:
@@ -531,7 +531,7 @@ paths:
           description: Error ocurred
           schema:
             $ref: "#/definitions/Error"
-
+            
   /usuario/{username}/mesa/{id}/documento/{id2}/salvar:
     post:
       description: Obter documentos em mesa virtual
@@ -569,6 +569,8 @@ paths:
             type: object
             properties:
               status:
+                type: string
+              errormsg:
                 type: string
         500:
           description: Error ocurred
@@ -877,10 +879,16 @@ definitions:
         type: string
       nomeDoUsuarioQueIncluiu:
         type: string
-      conteudo:
-        type: string
       siglaDaUnidade:
         type: string
+      conteudo:
+        type: string
+      diferencas:
+        type: string
+      similaridade:
+        type: number
+      idPadrao:
+        type: number
       lembretes:
         type: array
         items:
@@ -1033,6 +1041,9 @@ definitions:
       multiplicadorPrazo:
         type: string
       dataLimiteIntimacaoAutomatica:
+        type: string
+        format: date-time
+      dataFinalPrazo:
         type: string
         format: date-time
       assunto:
