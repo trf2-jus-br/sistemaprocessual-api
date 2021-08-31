@@ -107,6 +107,28 @@ public interface ISistemaProcessual {
 		public String conteudo;
 	}
 
+	public static class VotoDocumento implements ISwaggerModel {
+		public String id;
+		public String idProcesso;
+		public String numeroDoProcesso;
+		public String statusProcesso;
+		public String comSituacaoProcesso;
+		public String siglaDaUnidade;
+		public String dataDeInclusao;
+		public String numeroDoDocumento;
+		public String relator;
+		public String autor;
+		public String reu;
+		public String conteudo;
+		public List<VotoProferidoItem> voto = new ArrayList<>();
+	}
+
+	public static class VotoProferidoItem implements ISwaggerModel {
+		public String dataDeInclusao;
+		public String magistrado;
+		public String voto;
+	}
+
 	public static class Numero implements ISwaggerModel {
 	}
 
@@ -648,6 +670,57 @@ public interface ISistemaProcessual {
 			public String id;
 			public String id2;
 			public String lembrete;
+		}
+
+		public static class Response implements ISwaggerResponse {
+			public String status;
+		}
+
+		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
+	}
+
+	public interface IUsuarioUsernameVotosGet extends ISwaggerMethod {
+		public static class Request implements ISwaggerRequest {
+			public String username;
+		}
+
+		public static class Response implements ISwaggerResponse {
+			public List<VotoDocumento> list = new ArrayList<>();
+		}
+
+		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
+	}
+
+	public interface IUsuarioUsernameVotosIdAcompanharPost extends ISwaggerMethod {
+		public static class Request implements ISwaggerRequest {
+			public String username;
+			public String id;
+		}
+
+		public static class Response implements ISwaggerResponse {
+			public String status;
+		}
+
+		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
+	}
+
+	public interface IUsuarioUsernameVotosIdDivergirPost extends ISwaggerMethod {
+		public static class Request implements ISwaggerRequest {
+			public String username;
+			public String id;
+		}
+
+		public static class Response implements ISwaggerResponse {
+			public String status;
+		}
+
+		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
+	}
+
+	public interface IUsuarioUsernameVotosIdPedirVistaPost extends ISwaggerMethod {
+		public static class Request implements ISwaggerRequest {
+			public String username;
+			public String id;
 		}
 
 		public static class Response implements ISwaggerResponse {

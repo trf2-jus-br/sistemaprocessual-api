@@ -23,6 +23,8 @@ tags:
     description: Citação e Intimação
   - name: mesa
     description: Mesa Virtual
+  - name: voto
+    description: Voto em Sessão de Julgamento
 
 paths:
   /usuario/{username}:
@@ -599,6 +601,88 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
+  /usuario/{username}/votos:
+    get:
+      description: Obter documentos em mesa virtual
+      tags: [voto]
+      parameters:
+        - $ref: "#/parameters/username"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              list:
+                type: array
+                items:
+                  $ref: "#/definitions/VotoDocumento"
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+            
+  /usuario/{username}/votos/{id}/acompanhar:
+    post:
+      description: Acompanhar voto em sessão de julgamento
+      tags: [voto]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/id"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
+  /usuario/{username}/votos/{id}/divergir:
+    post:
+      description: Divergir de voto em sessão de julgamento
+      tags: [voto]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/id"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
+  /usuario/{username}/votos/{id}/pedir-vista:
+    post:
+      description: Pedir vista em voto/processo em sessão de julgamento
+      tags: [voto]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/id"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
+
   /usuario/{username}/avisos:
     get:
       description: Obter lista de avisos de um usuário
@@ -910,6 +994,50 @@ definitions:
       conteudo:
         type: string
 
+  VotoDocumento:
+    description: Voto em sessão de julgamento
+    type: object
+    properties:
+      id:
+        type: string
+      idProcesso:
+        type: string
+      numeroDoProcesso:
+        type: string
+      statusProcesso:
+        type: string
+      comSituacaoProcesso:
+        type: string
+      siglaDaUnidade:
+        type: string
+      dataDeInclusao:
+        type: string
+      numeroDoDocumento:
+        type: string
+      relator:
+        type: string
+      autor:
+        type: string
+      reu:
+        type: string
+      conteudo:
+        type: string
+      voto:
+        type: array
+        items:
+          $ref: "#/definitions/VotoProferidoItem"
+
+  VotoProferidoItem:
+    description: Voto Proferido
+    type: object
+    properties:
+      dataDeInclusao:
+        type: string
+      magistrado:
+        type: string
+      voto:
+        type: string
+        
   Numero:
     description: Número do processo
     type: string
