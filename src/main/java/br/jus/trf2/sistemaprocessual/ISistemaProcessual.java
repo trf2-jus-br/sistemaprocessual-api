@@ -113,8 +113,9 @@ public interface ISistemaProcessual {
 		public String numeroDoProcesso;
 		public String statusProcesso;
 		public String comSituacaoProcesso;
-		public String siglaDaUnidade;
 		public String dataDeInclusao;
+		public String siglaDaUnidade;
+		public String sequencia;
 		public String numeroDoDocumento;
 		public String relator;
 		public String autor;
@@ -127,6 +128,8 @@ public interface ISistemaProcessual {
 		public String dataDeInclusao;
 		public String magistrado;
 		public String voto;
+		public String codigoTipo;
+		public Boolean proprio;
 	}
 
 	public static class Numero implements ISwaggerModel {
@@ -266,6 +269,18 @@ public interface ISistemaProcessual {
 			public String unidade;
 			public String perfil;
 			public Boolean interno;
+		}
+
+		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
+	}
+
+	public interface IUsuarioUsernameTrocarSenhaPost extends ISwaggerMethod {
+		public static class Request implements ISwaggerRequest {
+			public String username;
+		}
+
+		public static class Response implements ISwaggerResponse {
+			public String status;
 		}
 
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
@@ -699,6 +714,7 @@ public interface ISistemaProcessual {
 
 		public static class Response implements ISwaggerResponse {
 			public String status;
+			public VotoDocumento voto;
 		}
 
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
@@ -712,6 +728,7 @@ public interface ISistemaProcessual {
 
 		public static class Response implements ISwaggerResponse {
 			public String status;
+			public VotoDocumento voto;
 		}
 
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
@@ -725,6 +742,7 @@ public interface ISistemaProcessual {
 
 		public static class Response implements ISwaggerResponse {
 			public String status;
+			public VotoDocumento voto;
 		}
 
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;

@@ -63,6 +63,24 @@ paths:
           description: Error ocurred
           schema:
             $ref: "#/definitions/Error"
+  /usuario/{username}/trocar-senha:
+    post:
+      description: Trocar senha de um usuário web, usando Basic Authentication
+      tags: [auth]
+      parameters:
+        - $ref: "#/parameters/username"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
             
   /peticao/inicial/tipos-documento:
     get:
@@ -637,6 +655,8 @@ paths:
             properties:
               status:
                 type: string
+              voto:
+                  $ref: "#/definitions/VotoDocumento"  
         500:
           description: Error ocurred
           schema:
@@ -657,6 +677,8 @@ paths:
             properties:
               status:
                 type: string
+              voto:
+                  $ref: "#/definitions/VotoDocumento"  
         500:
           description: Error ocurred
           schema:
@@ -677,6 +699,8 @@ paths:
             properties:
               status:
                 type: string
+              voto:
+                  $ref: "#/definitions/VotoDocumento"  
         500:
           description: Error ocurred
           schema:
@@ -1008,9 +1032,11 @@ definitions:
         type: string
       comSituacaoProcesso:
         type: string
+      dataDeInclusao:
+        type: string
       siglaDaUnidade:
         type: string
-      dataDeInclusao:
+      sequencia:
         type: string
       numeroDoDocumento:
         type: string
@@ -1037,6 +1063,10 @@ definitions:
         type: string
       voto:
         type: string
+      codigoTipo:
+        type: string
+      proprio:
+        type: boolean
         
   Numero:
     description: Número do processo
