@@ -121,7 +121,9 @@ public interface ISistemaProcessual {
 		public String autor;
 		public String reu;
 		public String conteudo;
+		public String tipoDeInclusao;
 		public List<VotoProferidoItem> voto = new ArrayList<>();
+		public List<DestaqueItem> destaque;
 	}
 
 	public static class VotoProferidoItem implements ISwaggerModel {
@@ -130,6 +132,14 @@ public interface ISistemaProcessual {
 		public String voto;
 		public String codigoTipo;
 		public Boolean proprio;
+	}
+	
+	public static class DestaqueItem implements ISwaggerModel {
+		public String dataDeInclusao;
+		public String magistrado;
+		public String conteudo;
+		public String codigoTipo;
+		public String voto;
 	}
 
 	public static class Numero implements ISwaggerModel {
