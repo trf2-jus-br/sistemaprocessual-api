@@ -110,20 +110,21 @@ public interface ISistemaProcessual {
 	public static class VotoDocumento implements ISwaggerModel {
 		public String id;
 		public String idProcesso;
+		public String idMinuta;
 		public String numeroDoProcesso;
 		public String statusProcesso;
 		public String comSituacaoProcesso;
 		public String dataDeInclusao;
 		public String siglaDaUnidade;
 		public String sequencia;
+		public String tipoDeInclusao;
 		public String numeroDoDocumento;
 		public String relator;
 		public String autor;
 		public String reu;
-		public String conteudo;
-		public String tipoDeInclusao;
+//		public String conteudo;
+		public List<DestaqueItem> destaque = new ArrayList<>();
 		public List<VotoProferidoItem> voto = new ArrayList<>();
-		public List<DestaqueItem> destaque;
 	}
 
 	public static class VotoProferidoItem implements ISwaggerModel {
@@ -133,7 +134,7 @@ public interface ISistemaProcessual {
 		public String codigoTipo;
 		public Boolean proprio;
 	}
-	
+
 	public static class DestaqueItem implements ISwaggerModel {
 		public String dataDeInclusao;
 		public String magistrado;
@@ -260,7 +261,7 @@ public interface ISistemaProcessual {
 	}
 
 	public static class Error implements ISwaggerModel {
-		public String error;
+		public String errormsg;
 	}
 
 	public interface IUsuarioUsernameGet extends ISwaggerMethod {
@@ -753,6 +754,21 @@ public interface ISistemaProcessual {
 		public static class Response implements ISwaggerResponse {
 			public String status;
 			public VotoDocumento voto;
+		}
+
+		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
+	}
+
+	public interface IUsuarioUsernameVotosIdMinutasId2Get extends ISwaggerMethod {
+		public static class Request implements ISwaggerRequest {
+			public String username;
+			public String id;
+			public String id2;
+		}
+
+		public static class Response implements ISwaggerResponse {
+			public String status;
+			public String html;
 		}
 
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;

@@ -706,6 +706,29 @@ paths:
           schema:
             $ref: "#/definitions/Error"
 
+  /usuario/{username}/votos/{id}/minutas/{id2}:
+    get:
+      description: Consultar texto do voto em sessão de julgamento
+      tags: [voto]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/id"
+        - $ref: "#/parameters/id2"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              html:
+                type: string
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+
 
   /usuario/{username}/avisos:
     get:
@@ -1026,6 +1049,8 @@ definitions:
         type: string
       idProcesso:
         type: string
+      idMinuta:
+        type: string
       numeroDoProcesso:
         type: string
       statusProcesso:
@@ -1038,6 +1063,8 @@ definitions:
         type: string
       sequencia:
         type: string
+      tipoDeInclusao:
+        type: string
       numeroDoDocumento:
         type: string
       relator:
@@ -1046,8 +1073,10 @@ definitions:
         type: string
       reu:
         type: string
-      conteudo:
-        type: string
+      destaque:
+        type: array
+        items:
+          $ref: "#/definitions/DestaqueItem"
       voto:
         type: array
         items:
@@ -1068,6 +1097,21 @@ definitions:
       proprio:
         type: boolean
         
+  DestaqueItem:
+    description: Informações sobre o destaque
+    type: object
+    properties:
+      dataDeInclusao:
+        type: string
+      magistrado:
+        type: string
+      conteudo:
+        type: string
+      codigoTipo:
+        type: string
+      voto:
+        type: string
+
   Numero:
     description: Número do processo
     type: string
@@ -1278,7 +1322,7 @@ definitions:
   Error:
     type: object
     properties:
-      error:
+      errormsg:
         type: string
     example:
-      error: Não foi possível realizar a operação
+      errormsg: Não foi possível realizar a operação
