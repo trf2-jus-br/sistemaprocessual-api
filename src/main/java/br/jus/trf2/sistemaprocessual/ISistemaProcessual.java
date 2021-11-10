@@ -122,7 +122,6 @@ public interface ISistemaProcessual {
 		public String relator;
 		public String autor;
 		public String reu;
-//		public String conteudo;
 		public List<DestaqueItem> destaque = new ArrayList<>();
 		public List<VotoProferidoItem> voto = new ArrayList<>();
 	}
@@ -420,6 +419,32 @@ public interface ISistemaProcessual {
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
 	}
 
+	public interface IUsuarioUsernameNomeParteProcessoNomeConsultarGet extends ISwaggerMethod {
+		public static class Request implements ISwaggerRequest {
+			public String username;
+			public String nome;
+		}
+
+		public static class Response implements ISwaggerResponse {
+			public List<Processo> list = new ArrayList<>();
+		}
+
+		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
+	}
+
+	public interface IUsuarioUsernameDocumentoParteProcessoDocumentoConsultarGet extends ISwaggerMethod {
+		public static class Request implements ISwaggerRequest {
+			public String username;
+			public String documento;
+		}
+
+		public static class Response implements ISwaggerResponse {
+			public List<Processo> list = new ArrayList<>();
+		}
+
+		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
+	}
+
 	public interface IUsuarioUsernameProcessoNumeroInformacoesAdicionaisGet extends ISwaggerMethod {
 		public static class Request implements ISwaggerRequest {
 			public String username;
@@ -517,7 +542,6 @@ public interface ISistemaProcessual {
 			public Long contentlength;
 			public InputStream inputstream;
 			public Map<String, List<String>> headerFields;
-
 			public String getContenttype() {
 				return contenttype;
 			}
@@ -574,7 +598,6 @@ public interface ISistemaProcessual {
 			public Long contentlength;
 			public InputStream inputstream;
 			public Map<String, List<String>> headerFields;
-
 			public String getContenttype() {
 				return contenttype;
 			}
@@ -787,3 +810,8 @@ public interface ISistemaProcessual {
 	}
 
 }
+
+
+
+
+

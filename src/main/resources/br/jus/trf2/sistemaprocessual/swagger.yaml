@@ -292,6 +292,50 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
+  /usuario/{username}/nome-parte/{nomeparte}/consultar:
+    get:
+      description: Consultar processo pelo nome da parte
+      tags: [processo]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/nomeparte"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              numero:
+                $ref: "#/definitions/Numero"
+              magistrado:
+                $ref: "#/definitions/Magistrado"
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+            
+  /usuario/{username}/documento-parte/{documento}/consultar:
+    get:
+      description: Consultar processo pelo cpf ou cnpj da parte
+      tags: [processo]
+      parameters:
+        - $ref: "#/parameters/username"
+        - $ref: "#/parameters/documento"
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              numero:
+                $ref: "#/definitions/Numero"
+              magistrado:
+                $ref: "#/definitions/Magistrado"
+        500:
+          description: Error ocurred
+          schema:
+            $ref: "#/definitions/Error"
+            
   /usuario/{username}/processo/{numero}/informacoes-adicionais:
     get:
       description: Obter informações adicionais de um processo
@@ -756,6 +800,12 @@ parameters:
     name: numero
     in: path
     description: Número do processo só algarismos
+    required: true
+    type: string
+  nomeparte:
+    name: nomeparte
+    in: path
+    description: Nome da parte 
     required: true
     type: string
   numeros:
