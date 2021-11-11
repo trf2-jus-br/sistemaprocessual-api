@@ -419,23 +419,12 @@ public interface ISistemaProcessual {
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
 	}
 
-	public interface IUsuarioUsernameProcessoNomeparteConsultarNomeGet extends ISwaggerMethod {
+	public interface IUsuarioUsernameProcessoConsultarGet extends ISwaggerMethod {
 		public static class Request implements ISwaggerRequest {
 			public String username;
-			public String nomeparte;
-		}
-
-		public static class Response implements ISwaggerResponse {
-			public List<Processo> list = new ArrayList<>();
-		}
-
-		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
-	}
-
-	public interface IUsuarioUsernameProcessoDocumentoConsultarDocumentoGet extends ISwaggerMethod {
-		public static class Request implements ISwaggerRequest {
-			public String username;
+			public String tipodedocumento;
 			public String documento;
+			public String nomeparte;
 		}
 
 		public static class Response implements ISwaggerResponse {
@@ -542,6 +531,7 @@ public interface ISistemaProcessual {
 			public Long contentlength;
 			public InputStream inputstream;
 			public Map<String, List<String>> headerFields;
+
 			public String getContenttype() {
 				return contenttype;
 			}
@@ -598,6 +588,7 @@ public interface ISistemaProcessual {
 			public Long contentlength;
 			public InputStream inputstream;
 			public Map<String, List<String>> headerFields;
+
 			public String getContenttype() {
 				return contenttype;
 			}
@@ -810,10 +801,3 @@ public interface ISistemaProcessual {
 	}
 
 }
-
-
-
-
-
-
-

@@ -292,35 +292,15 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
-  /usuario/{username}/processo/{nomeparte}/consultar-nome:
-    get:
-      description: Consultar processo pelo nome da parte
-      tags: [processo]
-      parameters:
-        - $ref: "#/parameters/username"
-        - $ref: "#/parameters/nomeparte"
-      responses:
-        200:
-          description: Successful response
-          schema:
-            type: object
-            properties:
-              list:
-                type: array
-                items:
-                  $ref: "#/definitions/Processo"
-        500:
-          description: Error ocurred
-          schema:
-            $ref: "#/definitions/Error"
-            
-  /usuario/{username}/processo/{documento}/consultar-documento:
+  /usuario/{username}/processo/consultar:
     get:
       description: Consultar processo pelo cpf ou cnpj da parte
       tags: [processo]
       parameters:
         - $ref: "#/parameters/username"
-        - $ref: "#/parameters/documento"
+        - $ref: "#/parameters/tipodedocumentoqueryopcional"
+        - $ref: "#/parameters/documentoqueryopcional"
+        - $ref: "#/parameters/nomepartequeryopcional"
       responses:
         200:
           description: Successful response
@@ -802,12 +782,6 @@ parameters:
     description: Número do processo só algarismos
     required: true
     type: string
-  nomeparte:
-    name: nomeparte
-    in: path
-    description: Nome da parte 
-    required: true
-    type: string
   numeros:
     name: numeros
     in: path
@@ -890,6 +864,18 @@ parameters:
     name: tipodedocumento
     in: query
     description: Tipo de documento deve ser cnpj para restrigir apenas as entidades que possuem cnpj
+    required: false
+    type: string
+  documentoqueryopcional:
+    name: documento
+    in: query
+    description: Número do CPF ou CNPJ só algarismos
+    required: false
+    type: string
+  nomepartequeryopcional:
+    name: nomeparte
+    in: query
+    description: Nome da parte 
     required: false
     type: string
   documento:
