@@ -292,7 +292,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
             
-  /usuario/{username}/nome-parte/{nomeparte}/consultar:
+  /usuario/{username}/processo/{nomeparte}/consultar-nome:
     get:
       description: Consultar processo pelo nome da parte
       tags: [processo]
@@ -305,16 +305,16 @@ paths:
           schema:
             type: object
             properties:
-              numero:
-                $ref: "#/definitions/Numero"
-              magistrado:
-                $ref: "#/definitions/Magistrado"
+              list:
+                type: array
+                items:
+                  $ref: "#/definitions/Processo"
         500:
           description: Error ocurred
           schema:
             $ref: "#/definitions/Error"
             
-  /usuario/{username}/documento-parte/{documento}/consultar:
+  /usuario/{username}/processo/{documento}/consultar-documento:
     get:
       description: Consultar processo pelo cpf ou cnpj da parte
       tags: [processo]
@@ -327,10 +327,10 @@ paths:
           schema:
             type: object
             properties:
-              numero:
-                $ref: "#/definitions/Numero"
-              magistrado:
-                $ref: "#/definitions/Magistrado"
+              list:
+                type: array
+                items:
+                  $ref: "#/definitions/Processo"
         500:
           description: Error ocurred
           schema:

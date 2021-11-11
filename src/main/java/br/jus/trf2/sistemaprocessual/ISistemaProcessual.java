@@ -419,10 +419,10 @@ public interface ISistemaProcessual {
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
 	}
 
-	public interface IUsuarioUsernameNomeParteProcessoNomeConsultarGet extends ISwaggerMethod {
+	public interface IUsuarioUsernameProcessoNomeparteConsultarNomeGet extends ISwaggerMethod {
 		public static class Request implements ISwaggerRequest {
 			public String username;
-			public String nome;
+			public String nomeparte;
 		}
 
 		public static class Response implements ISwaggerResponse {
@@ -432,7 +432,7 @@ public interface ISistemaProcessual {
 		public void run(Request req, Response resp, SistemaProcessualContext ctx) throws Exception;
 	}
 
-	public interface IUsuarioUsernameDocumentoParteProcessoDocumentoConsultarGet extends ISwaggerMethod {
+	public interface IUsuarioUsernameProcessoDocumentoConsultarDocumentoGet extends ISwaggerMethod {
 		public static class Request implements ISwaggerRequest {
 			public String username;
 			public String documento;
@@ -810,6 +810,8 @@ public interface ISistemaProcessual {
 	}
 
 }
+
+
 
 
 
