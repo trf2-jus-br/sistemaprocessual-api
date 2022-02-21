@@ -425,6 +425,7 @@ public interface ISistemaProcessual {
 			public String tipodedocumento;
 			public String documento;
 			public String nomeparte;
+			public String oab;
 		}
 
 		public static class Response implements ISwaggerResponse {
@@ -531,7 +532,6 @@ public interface ISistemaProcessual {
 			public Long contentlength;
 			public InputStream inputstream;
 			public Map<String, List<String>> headerFields;
-
 			public String getContenttype() {
 				return contenttype;
 			}
@@ -588,7 +588,6 @@ public interface ISistemaProcessual {
 			public Long contentlength;
 			public InputStream inputstream;
 			public Map<String, List<String>> headerFields;
-
 			public String getContenttype() {
 				return contenttype;
 			}
@@ -801,3 +800,5 @@ public interface ISistemaProcessual {
 	}
 
 }
+
+

@@ -301,6 +301,7 @@ paths:
         - $ref: "#/parameters/tipodedocumentoqueryopcional"
         - $ref: "#/parameters/documentoqueryopcional"
         - $ref: "#/parameters/nomepartequeryopcional"
+        - $ref: "#/parameters/oabqueryopcional"
       responses:
         200:
           description: Successful response
@@ -878,6 +879,12 @@ parameters:
     description: Nome da parte 
     required: false
     type: string
+  oabqueryopcional:
+    name: oab
+    in: query
+    description: Número da OAB 
+    required: false
+    type: string  
   documento:
     name: documento
     in: path
