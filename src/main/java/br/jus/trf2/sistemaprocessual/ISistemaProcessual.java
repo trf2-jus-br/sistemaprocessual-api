@@ -122,6 +122,7 @@ public interface ISistemaProcessual {
 		public String relator;
 		public String autor;
 		public String reu;
+		public String orgaoJuizo;
 		public List<DestaqueItem> destaque = new ArrayList<>();
 		public List<VotoProferidoItem> voto = new ArrayList<>();
 	}
