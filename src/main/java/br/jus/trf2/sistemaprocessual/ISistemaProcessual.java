@@ -665,6 +665,7 @@ public interface ISistemaProcessual {
 			public String id;
 			public String id2;
 			public String ids;
+			public String ambiente;
 		}
 
 		public static class Response implements ISwaggerResponse {
